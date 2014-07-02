@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+#preguntar cuando se crea un objeto sin ningun valor
 import sqlite3
 
 
 def connect():
+
     """Retorna una conexión con la base de datos"""
-    conn = sqlite3.connect('alumnos.db')
+    conn = sqlite3.connect('bd_principal.db')
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -36,7 +39,7 @@ class Tipo(object):
         # Si la pk tiene valor hay que traer el objeto (Fila) de la DB
         if id_tipo is not None:
             self.load_tipo()
-        elif nombre is not None:
+        elif nombre is not "":
             self.load_tipo(nombre=nombre)
 
     def load_tipo(self, nombre=None):
@@ -44,7 +47,7 @@ class Tipo(object):
         Carga un tipo de la base de datos por id_tipo o nombre
         """
         conn = connect()
-        query = "SELECT * FROM tipo "
+        query = "SELECT * FROM tipo"
         if nombre is not None:
             query += " WHERE nombre = ?"
             condition = nombre
@@ -66,23 +69,13 @@ class Tipo(object):
             self.id_tipo = None
             print "El registro no existe"
 
-# save privado ya que se guardan distintas cosas
-    def save_tipo(self):
-        """
-        Guarda el objeto en la base de datos.
-        Utiliza un insert o update según Corresponda
-        """
-    #    if self.id_tipo is None:
-   #         self.id_tipo = self.__insert()
-  #      else:
-        self.update_tipo()
-
     def update_tipo(self):
         query = "UPDATE {} ".format(self.__tablename__)
         query += "SET id_tipo = ?, "
         query += "nombre = ?, "
-        query += "descripcion = ?, "
-        query += "WHERE id_tipo = ?"
+        query += "descripcion = ?"
+        query += " WHERE id_tipo = ?"
+        print query
         try:
             conn = connect()
             conn.execute(
@@ -125,12 +118,11 @@ class Tipo(object):
 
 class Animal(Tipo):
 
-    __tablename__ = "animales"
+    __tablename__ = "animal"
     id_animal = None
     nombre_comun = ""
     nombre_cientifico = ""
     datos = ""
-    #Revisar esta linea
     fk_id_tipo = None
 
     def __init__(self,
@@ -138,10 +130,9 @@ class Animal(Tipo):
             nombre_comun="",
             nombre_cientifico="",
             datos="",
-            #Revisar esta linea y preguntar por el super
             fk_id_tipo=None):
 
-        super(Animal, self).__init__()
+#        super(Animal, self).__init__()
         self.id_animal = id_animal
         self.nombre_comun = nombre_comun
         self.nombre_cientifico = nombre_cientifico
@@ -155,36 +146,34 @@ class Animal(Tipo):
     def load_animal(self):
         if self.id_animal is not None:
             conn = connect()
-            query = "SELECT * FROM animales WHERE id_animal = ?"
+            query = "SELECT * FROM animal WHERE id_animal = ?"
             result = conn.execute(
                 query, [self.id_animal])
             row = result.fetchone()
             conn.close()
             if row is not None:
-                self.id_animal = row[1]
-                self.nombre_comun = row[2]
-                self.nombre_cientifico = row[3]
-                self.datos = row[4]
-                self.fk_id_tipo = row[5]
+                self.id_animal = row[0]
+                self.nombre_comun = row[1]
+                self.nombre_cientifico = row[2]
+                self.datos = row[3]
+                self.fk_id_tipo = row[4]
             else:
                 self.id_animal = None
                 print "El registro no existe"
 
     def insert_animal(self):
-        query = "INSERT INTO animales "
+        query = "INSERT INTO animal "
         # La pk está definida como auto increment en el modelo
-        query += "(id_animal, nombre_comun, nombre_cientifico, datos, fk_id_tipo) "
-        query += "VALUES (?, ?, ?, ?, ?)"
+        query += "(nombre_comun, nombre_cientifico, datos, fk_id_tipo) "
+        query += "VALUES (?, ?, ?, ?)"
         try:
             conn = connect()
             result = conn.execute(
                 query, [
-                    self.id_tipo,
                     self.nombre_comun,
                     self.nombre_cientifico,
                     self.datos,
-                    self.fk_id_tipo,
-                    self.id_tipo])
+                    self.fk_id_tipo])
             conn.commit()
             id_tipo = last_id(conn)
             conn.close()
@@ -194,7 +183,7 @@ class Animal(Tipo):
             return None
 
     def update_animal(self):
-        query = "UPDATE animales "
+        query = "UPDATE animal "
         query += "SET nombre_comun = ?, "
         query += "nombre_cientifico = ?, "
         query += "datos = ?, "
@@ -217,7 +206,7 @@ class Animal(Tipo):
             return False
 
     def delete_animal(self):
-        query = "DELETE FROM animales "
+        query = "DELETE FROM animal "
         query += "WHERE id_animal = ?"
         try:
             conn = connect()
@@ -228,3 +217,35 @@ class Animal(Tipo):
         except sqlite3.Error as e:
             print "An error occurred:", e.args[0]
             return False
+
+
+class Imagen(Animal):
+
+    #Preguntar por el super de acá
+    __tablename__ = "imagen"
+    id_imagen = None
+    ubicacion = ""
+    formato = ""
+    resolucion = ""
+    fk_id_animal = ""
+
+    def __init__(self,
+            id_imagen=None,
+            ubicacion="",
+            formato="",
+            resolucion="",
+            fk_id_animal=""):
+
+#        super(Imagen, self).__init__()
+        self.id_imagen = id_imagen
+        self.ubicacion = ubicacion
+        self.formato = formato
+        self.resolucion = resolucion
+        self.fk_id_animal = fk_id_animal
+
+if __name__ == "__main__":
+    pass
+
+
+
+
