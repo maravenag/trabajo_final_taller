@@ -218,6 +218,31 @@ class Animal(Tipo):
             print "An error occurred:", e.args[0]
             return False
 
+    @classmethod
+    def animales(cls, id_tipo):
+        """
+        Método utlizado para obtener la colección completa de filas
+        en la tabla animales.
+        Este método al ser de clase no necesita una instancia (objeto)
+        Sólo basta con invocarlo desde la clase
+        """
+        query = "SELECT * FROM {}".format(cls.__tablename__)
+        query += " WHERE fk_id_tipo = {}".format(id_tipo)
+        animales = list()
+        try:
+            conn = connect()
+            result = conn.execute(query)
+            data = result.fetchall()
+
+            for row in data:
+                animales.append(
+                    Animal(row[0], row[1], row[2]))
+            return animales
+
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return None
+
 
 class Imagen(Animal):
 
@@ -243,9 +268,30 @@ class Imagen(Animal):
         self.resolucion = resolucion
         self.fk_id_animal = fk_id_animal
 
+    def insertar_imagen(self):
+        query = "INSERT INTO imagen "
+        query += "(ubicacion,formato,resolucion,fk_id_animal) "
+        query += "VALUES (?,?,?,?)"
+        try:
+            conn = connect()
+            result = conn.execute(
+                query, [
+                    self.ubicacion,
+                    self.formato,
+                    self.resolucion,
+                    self.fk_id_animal])
+            conn.commit()
+            id_tipo = last_id(conn)
+            conn.close()
+            return id_tipo
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return None
+
+
 if __name__ == "__main__":
-    pass
 
-
+    animales = Animal.animales(1)
+    print animales.__len__()
 
 
