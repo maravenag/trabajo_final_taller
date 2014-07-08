@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import sys, controller
-from model import Tipo, Animal
 from PySide import QtGui, QtCore
 from MainWindow import Ui_MainWindow
+from EditarTipo_view import EditarTipo
 
 
 class MainWindow(QtGui.QMainWindow):
@@ -21,6 +21,7 @@ class MainWindow(QtGui.QMainWindow):
     def signals(self):
         self.ui.tabla_tipo.clicked.connect(self.tabla_tipo_clicked)
         self.ui.tabla_animal.clicked.connect(self.tabla_animal_clicked)
+        self.ui.btn_editar_tipo.clicked.connect(self.editar_tipo_clicked)
 
 ###Esta funcion debería ser llamada desde el controlador###
     def load_data_tipo(self):
@@ -46,6 +47,8 @@ class MainWindow(QtGui.QMainWindow):
         index = self.ui.tabla_tipo.currentIndex()
         id_tipo = index.row() + 1
         tipo = controller.carga_info_tipo(id_tipo)
+        self.ui.label_datos.setText("")
+        self.ui.label_nombre_cientifico.setText("")
         self.ui.label_descripcion_tipo.setText(tipo.descripcion)
         self.load_data_animal(id_tipo)
 
@@ -75,6 +78,18 @@ class MainWindow(QtGui.QMainWindow):
         animal = controller.carga_animal(nombre)
         self.ui.label_nombre_cientifico.setText(animal.nombre_cientifico)
         self.ui.label_datos.setText(animal.datos)
+
+### ¿Por que al inicial index es 0 ? ###
+    def editar_tipo_clicked(self):
+        index_ed = self.ui.tabla_tipo.currentIndex()
+        if index_ed.row() == -1:  # No se ha seleccionado una fila
+            self.errorMessageDialog = QtGui.QErrorMessage(self)
+            self.errorMessageDialog.showMessage("Debe seleccionar un tipo")
+            return False
+        else:
+            id_tipo = index_ed.row() + 1
+            self.edit = EditarTipo(id_tipo=id_tipo,
+                 callback=self.load_data_tipo)
 
 
 def run():

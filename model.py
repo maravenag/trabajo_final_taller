@@ -74,7 +74,6 @@ class Tipo(object):
         query += "nombre = ?, "
         query += "descripcion = ?"
         query += " WHERE id_tipo = ?"
-        print query
         try:
             conn = connect()
             conn.execute(

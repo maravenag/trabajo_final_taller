@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Tue Jul  8 12:40:56 2014
+# Created: Tue Jul  8 15:38:25 2014
 #      by: pyside-uic 0.2.13 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -16,11 +16,16 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabla_tipo = QtGui.QTableView(self.centralwidget)
-        self.tabla_tipo.setGeometry(QtCore.QRect(20, 20, 121, 411))
+        self.tabla_tipo.setGeometry(QtCore.QRect(20, 20, 121, 351))
+        self.tabla_tipo.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
         self.tabla_tipo.setObjectName("tabla_tipo")
         self.tabla_animal = QtGui.QTableView(self.centralwidget)
         self.tabla_animal.setGeometry(QtCore.QRect(160, 20, 241, 411))
+        self.tabla_animal.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
         self.tabla_animal.setObjectName("tabla_animal")
+        self.btn_editar_tipo = QtGui.QPushButton(self.centralwidget)
+        self.btn_editar_tipo.setGeometry(QtCore.QRect(30, 390, 98, 27))
+        self.btn_editar_tipo.setObjectName("btn_editar_tipo")
         self.widget = QtGui.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(20, 467, 143, 65))
         self.widget.setObjectName("widget")
@@ -56,7 +61,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.label_descripcion_tipo = QtGui.QLabel(self.widget1)
         self.label_descripcion_tipo.setLineWidth(1)
-        self.label_descripcion_tipo.setScaledContents(True)
+        self.label_descripcion_tipo.setScaledContents(False)
         self.label_descripcion_tipo.setObjectName("label_descripcion_tipo")
         self.verticalLayout.addWidget(self.label_descripcion_tipo)
         self.label_nombre_cientifico = QtGui.QLabel(self.widget1)
@@ -75,6 +80,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_editar_tipo.setText(QtGui.QApplication.translate("MainWindow", "Editar Tipo", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", "Descripcion del tipo", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("MainWindow", "Nombre Científico", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("MainWindow", "Datos", None, QtGui.QApplication.UnicodeUTF8))
