@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys
+import sys, controller
 from model import Tipo, Animal
 from PySide import QtGui, QtCore
 from MainWindow import Ui_MainWindow
@@ -20,12 +20,13 @@ class MainWindow(QtGui.QMainWindow):
 
     def signals(self):
         self.ui.tabla_tipo.clicked.connect(self.tabla_tipo_clicked)
+        self.ui.tabla_animal.clicked.connect(self.tabla_animal_clicked)
 
 ###Esta funcion debería ser llamada desde el controlador###
     def load_data_tipo(self):
         """Funcion que carga todos los tipos de animales dentro de una grilla
         """
-        tipo = Tipo.all()
+        tipo = controller.carga_tipos()
         self.model = QtGui.QStandardItemModel(5, 1)
         self.model.setHorizontalHeaderItem(0, QtGui.QStandardItem(u"Tipo"))
 
@@ -44,14 +45,15 @@ class MainWindow(QtGui.QMainWindow):
     def tabla_tipo_clicked(self):
         index = self.ui.tabla_tipo.currentIndex()
         id_tipo = index.row() + 1
-        #El controlador debería llamar a load_data_animal
+        tipo = controller.carga_info_tipo(id_tipo)
+        self.ui.label_descripcion_tipo.setText(tipo.descripcion)
         self.load_data_animal(id_tipo)
 
 ###Esta funcion también debería ser llamada desde el controlador ###
     def load_data_animal(self, id_tipo):
         """Funcion que carga todos los animales de un tipo en la grilla"""
 
-        animales = Animal.animales(id_tipo)
+        animales = controller.carga_animales(id_tipo)
         self.model = QtGui.QStandardItemModel(animales.__len__(), 1)
         self.model.setHorizontalHeaderItem(0, QtGui.QStandardItem(u"Animal"))
 
@@ -66,6 +68,13 @@ class MainWindow(QtGui.QMainWindow):
             0, self.ui.tabla_animal.horizontalHeader().Stretch)
         self.ui.tabla_animal.setModel(self.model)
         self.ui.tabla_animal.setColumnWidth(0, 241)
+
+    def tabla_animal_clicked(self):
+        index = self.ui.tabla_animal.currentIndex()
+        nombre = index.data()  # nombre del animal
+        animal = controller.carga_animal(nombre)
+        self.ui.label_nombre_cientifico.setText(animal.nombre_cientifico)
+        self.ui.label_datos.setText(animal.datos)
 
 
 def run():

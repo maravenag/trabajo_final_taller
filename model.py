@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-#preguntar cuando se crea un objeto sin ningun valor
 import sqlite3
 
 
@@ -132,7 +131,6 @@ class Animal(Tipo):
             datos="",
             fk_id_tipo=None):
 
-#        super(Animal, self).__init__()
         self.id_animal = id_animal
         self.nombre_comun = nombre_comun
         self.nombre_cientifico = nombre_cientifico
@@ -142,24 +140,33 @@ class Animal(Tipo):
         if id_animal is not None:
             self.id_animal = id_animal
             self.load_animal()
+        elif nombre_comun is not "":
+            self.load_animal(nombre=nombre_comun)
 
-    def load_animal(self):
+    def load_animal(self, nombre=None):
+        query = "SELECT * FROM animal "
+        conn = connect()
         if self.id_animal is not None:
-            conn = connect()
-            query = "SELECT * FROM animal WHERE id_animal = ?"
-            result = conn.execute(
-                query, [self.id_animal])
-            row = result.fetchone()
-            conn.close()
-            if row is not None:
-                self.id_animal = row[0]
-                self.nombre_comun = row[1]
-                self.nombre_cientifico = row[2]
-                self.datos = row[3]
-                self.fk_id_tipo = row[4]
-            else:
-                self.id_animal = None
-                print "El registro no existe"
+            query += "WHERE id_animal = ?"
+            condicion = self.id_animal
+        else:
+            if nombre is not None:
+                query += "WHERE nombre_comun = ?"
+                condicion = nombre
+
+        result = conn.execute(
+            query, [condicion])
+        row = result.fetchone()
+        conn.close()
+        if row is not None:
+            self.id_animal = row[0]
+            self.nombre_comun = row[1]
+            self.nombre_cientifico = row[2]
+            self.datos = row[3]
+            self.fk_id_tipo = row[4]
+        else:
+            self.id_animal = None
+            print "El registro no existe"
 
     def insert_animal(self):
         query = "INSERT INTO animal "
