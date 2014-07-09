@@ -25,6 +25,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.btn_editar_tipo.clicked.connect(self.editar_tipo_clicked)
         self.ui.btn_agregar_animal.clicked.connect(self.agregar_animal_clicked)
         self.ui.btn_editar_animal.clicked.connect(self.editar_animal_clicked)
+        self.ui.eliminar_animal.clicked.connect(self.eliminar_animal_clicked)
 
 ###Esta funcion debería ser llamada desde el controlador###
     def load_data_tipo(self):
@@ -106,6 +107,24 @@ class MainWindow(QtGui.QMainWindow):
         else:
             animal = index.data()
             self.formulario = Formulario(editar=1, nom_animal=animal)
+
+    def eliminar_animal_clicked(self):
+        model = self.ui.tabla_animal.model()
+        index = self.ui.tabla_animal.currentIndex()
+        if index.row() == -1:  # No se ha seleccionado una fila
+            self.errorMessageDialog = QtGui.QErrorMessage(self)
+            self.errorMessageDialog.showMessage("Debe seleccionar un animal")
+            return False
+        else:
+            mensaje = u"¿Desea eliminar el animal seleccionado?"
+            self.pregunta = QtGui.QMessageBox.question(self, self.tr("Eliminar"), mensaje
+                                           , QtGui.QMessageBox.StandardButton.Yes | QtGui.QMessageBox.StandardButton.No)
+            if self.pregunta == QtGui.QMessageBox.Yes:
+                animal = model.index(index.row(), 0, QtCore.QModelIndex()).data()
+                controller.elimina_animal(animal)
+                self.tabla_tipo_clicked()
+
+
 
 
 def run():

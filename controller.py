@@ -54,3 +54,8 @@ def update_animal(id_animal, nombre_comun, nombre_cientifico,
     animal.datos = datos
     animal.fk_id_tipo = fk_id_tipo
     animal.update_animal()
+
+def elimina_animal(nombre):
+
+    animal= Animal(nombre_comun = nombre)
+    animal.delete_animal()
