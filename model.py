@@ -169,12 +169,11 @@ class Animal(Tipo):
 
     def insert_animal(self):
         query = "INSERT INTO animal "
-        # La pk está definida como auto increment en el modelo
         query += "(nombre_comun, nombre_cientifico, datos, fk_id_tipo) "
         query += "VALUES (?, ?, ?, ?)"
         try:
             conn = connect()
-            result = conn.execute(
+            result = conn.execute(  # lint:ok
                 query, [
                     self.nombre_comun,
                     self.nombre_cientifico,
@@ -252,7 +251,6 @@ class Animal(Tipo):
 
 class Imagen(Animal):
 
-    #Preguntar por el super de acá
     __tablename__ = "imagen"
     id_imagen = None
     ubicacion = ""
@@ -267,7 +265,6 @@ class Imagen(Animal):
             resolucion="",
             fk_id_animal=""):
 
-#        super(Imagen, self).__init__()
         self.id_imagen = id_imagen
         self.ubicacion = ubicacion
         self.formato = formato
@@ -280,7 +277,7 @@ class Imagen(Animal):
         query += "VALUES (?,?,?,?)"
         try:
             conn = connect()
-            result = conn.execute(
+            result = conn.execute(  # lint:ok
                 query, [
                     self.ubicacion,
                     self.formato,

@@ -34,3 +34,23 @@ def actualiza_tipo(nombre, descripcion, id_tipo):
     tipo.descripcion = descripcion
     tipo.update_tipo()
 
+
+def crear_animal(nombre_comun, nombre_cientifico, datos, fk_id_tipo):
+
+    animal = Animal()
+    animal.nombre_comun = nombre_comun
+    animal.nombre_cientifico = nombre_cientifico
+    animal.datos = datos
+    animal.fk_id_tipo = fk_id_tipo
+    animal.insert_animal()
+
+
+def update_animal(id_animal, nombre_comun, nombre_cientifico,
+     datos, fk_id_tipo):
+
+    animal = Animal(id_animal=id_animal)
+    animal.nombre_comun = nombre_comun
+    animal.nombre_cientifico = nombre_cientifico
+    animal.datos = datos
+    animal.fk_id_tipo = fk_id_tipo
+    animal.update_animal()

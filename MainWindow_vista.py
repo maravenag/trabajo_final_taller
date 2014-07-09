@@ -5,6 +5,7 @@ import sys, controller
 from PySide import QtGui, QtCore
 from MainWindow import Ui_MainWindow
 from EditarTipo_view import EditarTipo
+from Formulario_view import Formulario
 
 
 class MainWindow(QtGui.QMainWindow):
@@ -22,6 +23,8 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.tabla_tipo.clicked.connect(self.tabla_tipo_clicked)
         self.ui.tabla_animal.clicked.connect(self.tabla_animal_clicked)
         self.ui.btn_editar_tipo.clicked.connect(self.editar_tipo_clicked)
+        self.ui.btn_agregar_animal.clicked.connect(self.agregar_animal_clicked)
+        self.ui.btn_editar_animal.clicked.connect(self.editar_animal_clicked)
 
 ###Esta funcion debería ser llamada desde el controlador###
     def load_data_tipo(self):
@@ -67,6 +70,7 @@ class MainWindow(QtGui.QMainWindow):
             self.model.setData(index, nombre)
             r = r + 1
 
+        self.ui.lbl_cant_ani.setText(str(r))
         self.ui.tabla_animal.horizontalHeader().setResizeMode(
             0, self.ui.tabla_animal.horizontalHeader().Stretch)
         self.ui.tabla_animal.setModel(self.model)
@@ -79,7 +83,6 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.label_nombre_cientifico.setText(animal.nombre_cientifico)
         self.ui.label_datos.setText(animal.datos)
 
-### ¿Por que al inicial index es 0 ? ###
     def editar_tipo_clicked(self):
         index_ed = self.ui.tabla_tipo.currentIndex()
         if index_ed.row() == -1:  # No se ha seleccionado una fila
@@ -91,10 +94,24 @@ class MainWindow(QtGui.QMainWindow):
             self.edit = EditarTipo(id_tipo=id_tipo,
                  callback=self.load_data_tipo)
 
+    def agregar_animal_clicked(self):
+        self.formulario = Formulario()
+
+    def editar_animal_clicked(self):
+        index = self.ui.tabla_animal.currentIndex()
+        if index.row() == -1:  # No se ha seleccionado una fila
+            self.errorMessageDialog = QtGui.QErrorMessage(self)
+            self.errorMessageDialog.showMessage("Debe seleccionar un animal")
+            return False
+        else:
+            animal = index.data()
+            self.formulario = Formulario(editar=1, nom_animal=animal)
+
 
 def run():
+
     app = QtGui.QApplication(sys.argv)
-    main = MainWindow()
+    main = MainWindow()  # lint:ok
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
