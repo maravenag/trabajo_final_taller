@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 from Formulario import Ui_Formulario
 import controller
-import sys, os
-from PySide import QtGui, QtCore
-
+from PySide import QtGui
 
 class Formulario(QtGui.QMainWindow):
 

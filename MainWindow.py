@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Tue Jul  8 18:46:59 2014
+# Created: Wed Jul  9 20:21:18 2014
 #      by: pyside-uic 0.2.13 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -102,6 +102,9 @@ class Ui_MainWindow(object):
         self.btn_agregar_animal.setObjectName("btn_agregar_animal")
         self.verticalLayout_3.addWidget(self.btn_agregar_animal)
         self.horizontalLayout_2.addLayout(self.verticalLayout_3)
+        self.widget = QtGui.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(430, 20, 481, 411))
+        self.widget.setObjectName("widget")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")

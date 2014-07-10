@@ -291,10 +291,31 @@ class Imagen(Animal):
             print "An error occurred:", e.args[0]
             return None
 
+    @classmethod
+    def imagenes(cls, fk_id_animal):
+        """Funcion que devuelve las imágenes de un animal específico"""
+        query = "SELECT * FROM {}".format(cls.__tablename__)
+        query += " WHERE fk_id_animal = {}".format(fk_id_animal)
+        imagenes = list()
+        try:
+            conn = connect()
+            result = conn.execute(query)
+            data = result.fetchall()
+
+            for row in data:
+                imagenes.append(
+                    Imagen(row[0], row[1], row[2]))
+            return imagenes
+
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return None
+
 
 if __name__ == "__main__":
 
-    animales = Animal.animales(1)
-    print animales.__len__()
+    imagenes = Imagen.imagenes(1)
+    for row in imagenes:
+        print row.__dict__["ubicacion"]
 
 

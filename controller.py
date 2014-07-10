@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from model import Animal, Tipo
+from model import Animal, Tipo, Imagen
 
 
 def carga_tipos():
@@ -55,7 +55,13 @@ def update_animal(id_animal, nombre_comun, nombre_cientifico,
     animal.fk_id_tipo = fk_id_tipo
     animal.update_animal()
 
+
 def elimina_animal(nombre):
 
-    animal= Animal(nombre_comun = nombre)
+    animal = Animal(nombre_comun=nombre)
     animal.delete_animal()
+
+
+def obtener_imagenes(id_animal):
+    imagenes = Imagen.imagenes(id_animal)
+    return imagenes

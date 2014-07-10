@@ -1,7 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys, controller
+import math
+import sys
+import controller
 from PySide import QtGui, QtCore
 from MainWindow import Ui_MainWindow
 from EditarTipo_view import EditarTipo
@@ -13,6 +15,7 @@ class MainWindow(QtGui.QMainWindow):
     def __init__(self, parent=None):
 
         QtGui.QMainWindow.__init__(self, parent)
+        self.layout = QtGui.QGridLayout()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.load_data_tipo()
@@ -45,7 +48,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.tabla_tipo.horizontalHeader().setResizeMode(
             0, self.ui.tabla_tipo.horizontalHeader().Stretch)
         self.ui.tabla_tipo.setModel(self.model)
-        self.ui.tabla_tipo.setColumnWidth(0, 121)
+        self.ui.tabla_tipo.setColumnWidth(0, 187)
 
     def tabla_tipo_clicked(self):
         index = self.ui.tabla_tipo.currentIndex()
@@ -83,6 +86,7 @@ class MainWindow(QtGui.QMainWindow):
         animal = controller.carga_animal(nombre)
         self.ui.label_nombre_cientifico.setText(animal.nombre_cientifico)
         self.ui.label_datos.setText(animal.datos)
+        self.despliega_imagenes(animal.id_animal)  # Acá debo pasar la id_animal
 
     def editar_tipo_clicked(self):
         index_ed = self.ui.tabla_tipo.currentIndex()
@@ -118,13 +122,39 @@ class MainWindow(QtGui.QMainWindow):
         else:
             mensaje = u"¿Desea eliminar el animal seleccionado?"
             self.pregunta = QtGui.QMessageBox.question(self, self.tr("Eliminar"), mensaje
-                                           , QtGui.QMessageBox.StandardButton.Yes | QtGui.QMessageBox.StandardButton.No)
+                 , QtGui.QMessageBox.StandardButton.Yes | QtGui.QMessageBox.StandardButton.No)
             if self.pregunta == QtGui.QMessageBox.Yes:
                 animal = model.index(index.row(), 0, QtCore.QModelIndex()).data()
                 controller.elimina_animal(animal)
                 self.tabla_tipo_clicked()
 
+    def despliega_imagenes(self, id_animal):
+        self.borralayout(self.layout)
+        imagenes = controller.obtener_imagenes(id_animal)
+        cant_imagenes = len(imagenes)
+        labels = {}
+        filas = math.ceil(cant_imagenes / 3.0)
+        k = 0
+        for i in range(int(filas)):
+            for j in range(3):
+                if(k <= cant_imagenes - 1):
+                    ubicacion = (imagenes[k].__dict__["ubicacion"]).decode('utf-8')
+                    labels[(i, j)] = QtGui.QLabel(ubicacion)
+                    self.myPixmap = QtGui.QPixmap(ubicacion)
+                    self.myScaledPixmap = self.myPixmap.scaled(200, 200,
+                         QtCore.Qt.KeepAspectRatio)
+                    labels[(i, j)].setPixmap(self.myScaledPixmap)
+                    self.layout.addWidget(labels[(i, j)], i, j)
+                    k = k + 1
 
+        self.ui.widget.setLayout(self.layout)
+        self.ui.widget.show()
+
+    def borralayout(self, aLayout):  # Elimina todo del layout
+
+        while aLayout.count():
+            item = aLayout.takeAt(0)
+            item.widget().deleteLater()
 
 
 def run():
