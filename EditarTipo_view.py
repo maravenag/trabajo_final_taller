@@ -27,11 +27,12 @@ class EditarTipo(QtGui.QDialog):
     def cargar_info(self, id_tipo):
         info = controller.carga_info_tipo(id_tipo)
         self.ui.line_edit_tipo.setText(info.nombre)
-        self.ui.line_edit_descripcion.setText(info.descripcion)
+        #self.ui.line_edit_descripcion.setText(info.descripcion)
+        self.ui.text_edit_descripcion.setPlainText(info.descripcion)
 
     def aceptar(self):
         nombre = self.ui.line_edit_tipo.text()
-        descripcion = self.ui.line_edit_descripcion.text()
+        descripcion = self.ui.text_edit_descripcion.toPlainText()
         controller.actualiza_tipo(nombre, descripcion, self.id_tipo)
         self.callback()
         self.close()

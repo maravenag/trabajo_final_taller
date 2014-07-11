@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Formulario.ui'
 #
-# Created: Tue May 27 08:39:57 2014
+# Created: Fri Jul 11 14:38:13 2014
 #      by: pyside-uic 0.2.13 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -14,7 +14,7 @@ class Ui_Formulario(object):
         Formulario.setObjectName("Formulario")
         Formulario.resize(327, 280)
         self.layoutWidget = QtGui.QWidget(Formulario)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 0, 302, 271))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 0, 304, 271))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout_2 = QtGui.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -45,9 +45,6 @@ class Ui_Formulario(object):
         self.verticalLayout_2.addLayout(self.verticalLayout)
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.cargarImagen = QtGui.QPushButton(self.layoutWidget)
-        self.cargarImagen.setObjectName("cargarImagen")
-        self.horizontalLayout.addWidget(self.cargarImagen)
         self.Aceptar = QtGui.QPushButton(self.layoutWidget)
         self.Aceptar.setObjectName("Aceptar")
         self.horizontalLayout.addWidget(self.Aceptar)
@@ -65,7 +62,6 @@ class Ui_Formulario(object):
         self.lineNombreSci.setPlaceholderText(QtGui.QApplication.translate("Formulario", "Nombre Científico", None, QtGui.QApplication.UnicodeUTF8))
         self.lineDatos.setPlaceholderText(QtGui.QApplication.translate("Formulario", "Datos", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("Formulario", "Tipo de Animal", None, QtGui.QApplication.UnicodeUTF8))
-        self.cargarImagen.setText(QtGui.QApplication.translate("Formulario", "Cargar Imagen", None, QtGui.QApplication.UnicodeUTF8))
         self.Aceptar.setText(QtGui.QApplication.translate("Formulario", "Aceptar", None, QtGui.QApplication.UnicodeUTF8))
         self.Cancelar.setText(QtGui.QApplication.translate("Formulario", "Cancelar", None, QtGui.QApplication.UnicodeUTF8))
 
