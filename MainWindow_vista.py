@@ -133,23 +133,55 @@ class MainWindow(QtGui.QMainWindow):
         imagenes = controller.obtener_imagenes(id_animal)
         cant_imagenes = len(imagenes)
         labels = {}
+        widget = {}
+        layoutsV = {}
+        layoutsH = {}
+        btns_el = {}
+        btns_ed = {}
         filas = math.ceil(cant_imagenes / 3.0)
         k = 0
+        print cant_imagenes
+        cont = 0
         for i in range(int(filas)):
             for j in range(3):
-                if(k <= cant_imagenes - 1):
+                cont = cont + 1
+                if(k < cant_imagenes - 1):
                     ubicacion = (
                         imagenes[k].__dict__["ubicacion"]).decode('utf-8')
+                    widget[(i, j)] = QtGui.QWidget()
+                    layoutsV[(i, j)] = QtGui.QVBoxLayout()
+                    layoutsH[(i, j)] = QtGui.QHBoxLayout()
+                    btns_el[(i, j)] = QtGui.QPushButton("Eliminar")
+                    btns_ed[(i, j)] = QtGui.QPushButton("Editar")
                     labels[(i, j)] = QtGui.QLabel(ubicacion)
                     self.myPixmap = QtGui.QPixmap(ubicacion)
                     self.myScaledPixmap = self.myPixmap.scaled(200, 200,
-                         QtCore.Qt.KeepAspectRatio)
+                            QtCore.Qt.KeepAspectRatio)
                     labels[(i, j)].setPixmap(self.myScaledPixmap)
-                    self.layout.addWidget(labels[(i, j)], i, j)
+                    layoutsV[(i, j)].addWidget(labels[(i, j)])
+                    layoutsH[(i, j)].addWidget(btns_ed[(i, j)])
+                    layoutsH[(i, j)].addWidget(btns_el[(i, j)])
+                    layoutsV[(i, j)].addLayout(layoutsH[(i, j)])
+                    widget[(i, j)].setLayout(layoutsV[(i, j)])
+                    self.layout.addWidget(widget[(i, j)], i, j)
                     k = k + 1
+                if(cont == cant_imagenes + 1):
+                    btn_agregar = QtGui.QPushButton("Agregar")
+                    layoutsV[(i, j)] = QtGui.QVBoxLayout()
+                    widget[(i, j)] = QtGui.QWidget()
+                    labels[(i, j)] = QtGui.QLabel()
+                    self.myPixmap = QtGui.QPixmap("imagenes/sin_imagen.jpg")
+                    self.myScaledPixmap = self.myPixmap.scaled(200, 200,
+                        QtCore.Qt.KeepAspectRatio)
+                    labels[(i, j)].setPixmap(self.myScaledPixmap)
+                    layoutsV[(i, j)].addWidget(labels[(i, j)])
+                    layoutsV[(i, j)].addWidget(btn_agregar)
+                    widget[(i, j)].setLayout(layoutsV[(i, j)])
+                    self.layout.addWidget(widget[(i, j)], i, j)
 
         self.ui.widget.setLayout(self.layout)
         self.ui.widget.show()
+
 
     def borralayout(self, aLayout):  # Elimina todo del layout
 
