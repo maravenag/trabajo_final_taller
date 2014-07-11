@@ -138,7 +138,8 @@ class MainWindow(QtGui.QMainWindow):
         for i in range(int(filas)):
             for j in range(3):
                 if(k <= cant_imagenes - 1):
-                    ubicacion = (imagenes[k].__dict__["ubicacion"]).decode('utf-8')
+                    ubicacion = (
+                        imagenes[k].__dict__["ubicacion"]).decode('utf-8')
                     labels[(i, j)] = QtGui.QLabel(ubicacion)
                     self.myPixmap = QtGui.QPixmap(ubicacion)
                     self.myScaledPixmap = self.myPixmap.scaled(200, 200,
