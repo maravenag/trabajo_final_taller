@@ -304,7 +304,7 @@ class MainWindow(QtGui.QMainWindow):
 def run():
 
     app = QtGui.QApplication(sys.argv)
-    main = MainWindow()  # lint:ok
+    #main = MainWindow()  # lint:ok
     sys.exit(app.exec_())
 
 if __name__ == '__main__':

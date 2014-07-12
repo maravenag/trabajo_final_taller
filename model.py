@@ -16,6 +16,16 @@ def last_id(conn):
     return result.fetchone()
 
 
+def busca_usuario(usuario="", contrasea=""):
+    con = connect()
+    datos = (usuario, contrasea)
+    query = """ SELECT * FROM usuario WHERE usuario=? and contraseña=?"""
+    resultado = con.execute(query, datos)
+    usuario = resultado.fetchall()
+    con.close()
+
+    return usuario
+
 class Tipo(object):
 
     """Clase que representa a la tabla tipo"""

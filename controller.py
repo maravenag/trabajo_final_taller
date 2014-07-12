@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from model import Animal, Tipo, Imagen
+import model
 from PIL import Image
 import os
-
+import base64
 
 def carga_tipos():
     """Devuelve una lista de objetos con todos los tipos de animales
@@ -131,3 +132,8 @@ def actualiza_foto(id_imagen, ubicacion_foto_nueva, callback):
     imagen.resolucion = tamano
     imagen.update_imagen()
     callback()
+
+def encripta_usuario(usuario, contrasea):
+    encrip = base64.encodestring(contrasea)
+    respuesta = model.busca_usuario(usuario, encrip)
+    return respuesta
