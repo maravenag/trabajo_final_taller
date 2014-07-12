@@ -69,6 +69,7 @@ class Tipo(object):
             print "El registro no existe"
 
     def update_tipo(self):
+        """Actualiza en la base de datos el tipo"""
         query = "UPDATE {} ".format(self.__tablename__)
         query += "SET id_tipo = ?, "
         query += "nombre = ?, "
@@ -115,6 +116,7 @@ class Tipo(object):
 
 
 class Animal(Tipo):
+    """Clase que representa la tabla animal"""
 
     __tablename__ = "animal"
     id_animal = None
@@ -143,6 +145,7 @@ class Animal(Tipo):
             self.load_animal(nombre=nombre_comun)
 
     def load_animal(self, nombre=None):
+        """Carga un animal por la id o por el nombre y lo retorna"""
         query = "SELECT * FROM animal "
         conn = connect()
         if self.id_animal is not None:
@@ -168,6 +171,7 @@ class Animal(Tipo):
             print "El registro no existe"
 
     def insert_animal(self):
+        """Inserta en la base de datos un animal nuevo creado"""
         query = "INSERT INTO animal "
         query += "(nombre_comun, nombre_cientifico, datos, fk_id_tipo) "
         query += "VALUES (?, ?, ?, ?)"
@@ -188,6 +192,7 @@ class Animal(Tipo):
             return None
 
     def update_animal(self):
+        """Actualiza en la base de datos la información de un animal"""
         query = "UPDATE animal "
         query += "SET nombre_comun = ?, "
         query += "nombre_cientifico = ?, "
@@ -211,6 +216,7 @@ class Animal(Tipo):
             return False
 
     def delete_animal(self):
+        """Elimina de la base de datos un animal"""
         query = "DELETE FROM animal "
         query += "WHERE id_animal = ?"
         try:
@@ -275,6 +281,8 @@ class Imagen(Animal):
             self.load_imagen()
 
     def insertar_imagen(self):
+        """Inserta una imagen en la base de datos con todos sus valores
+        respectivos"""
         query = "INSERT INTO imagen "
         query += "(ubicacion,formato,resolucion,fk_id_animal) "
         query += "VALUES (?,?,?,?)"
@@ -295,6 +303,7 @@ class Imagen(Animal):
             return None
 
     def load_imagen(self):
+        """Carga una imagen de acuerdo a la id de esta"""
         conn = connect()
         query = "SELECT * FROM imagen "
         query += "WHERE id_imagen = ?"
@@ -312,6 +321,8 @@ class Imagen(Animal):
             print "El registro no existe"
 
     def update_imagen(self):
+        """"Actualiza la información de una imagen en la base de datos"""
+
         query = "UPDATE imagen "
         query += "SET ubicacion = ?, "
         query += "formato = ?, "
@@ -354,6 +365,10 @@ class Imagen(Animal):
 
     @classmethod
     def elimina_foto(cls, id_imagen, ubicacion):
+        """Se le pasa como parámetros la id de la imágen y la ubicación de
+        esta y elimina tanto de la base de datos como del computador una imagen
+        seleccionada"""
+
         query = "DELETE FROM imagen "
         query += "WHERE id_imagen = '{}'".format(id_imagen)
         try:

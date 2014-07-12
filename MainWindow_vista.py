@@ -25,6 +25,7 @@ class MainWindow(QtGui.QMainWindow):
         self.show()
 
     def signals(self):
+        """Se conectan los botones y la señales de la interfaz"""
         self.ui.tabla_tipo.clicked.connect(self.tabla_tipo_clicked)
         self.ui.tabla_animal.clicked.connect(self.tabla_animal_clicked)
         self.ui.btn_editar_tipo.clicked.connect(self.editar_tipo_clicked)
@@ -34,7 +35,9 @@ class MainWindow(QtGui.QMainWindow):
 
 ###Esta funcion debería ser llamada desde el controlador###
     def load_data_tipo(self):
-        """Funcion que carga todos los tipos de animales dentro de una grilla
+        """Funcion que carga todos los tipos de animales dentro de una grilla,
+        a través del controlador se recibe la información con la cual
+        posteriormente se llena la información de la grilla
         """
         tipo = controller.carga_tipos()
         self.model = QtGui.QStandardItemModel(5, 1)
@@ -53,6 +56,9 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.tabla_tipo.setColumnWidth(0, 187)
 
     def tabla_tipo_clicked(self):
+        """Borra todo lo del widget donde se muestran las imágenes,
+        se limpian los labels donde se despliega información del animal
+        , y luego se despliega la info del tipo de animal"""
         self.borralayout(self.layout)
         index = self.ui.tabla_tipo.currentIndex()
         id_tipo = index.row() + 1
@@ -84,14 +90,23 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.tabla_animal.setColumnWidth(0, 241)
 
     def tabla_animal_clicked(self):
+        """Cuando se presiona la tabla animal, se presiona un animal,
+        el a través del nombre del animal, se llama el controlador, el
+        cual retorna el Animal() y se cargan en los respectivos labels
+        los datos correspondientes, los cuales son sacados de los atributos
+        del respectivo objeto"""
+
         index = self.ui.tabla_animal.currentIndex()
         nombre = index.data()  # nombre del animal
         animal = controller.carga_animal(nombre)
         self.ui.label_nombre_cientifico.setText(animal.nombre_cientifico)
         self.ui.label_datos.setText(animal.datos)
-        self.despliega_imagenes(animal.id_animal)  # Acá debo pasar la id_animal
+        self.despliega_imagenes(animal.id_animal)
 
     def editar_tipo_clicked(self):
+        """Al presionar el boton editar se llama al formulario para poder
+        hacer esta acción, para esto primero se verifica que se haya presionado
+        un animal de la grilla"""
         index_ed = self.ui.tabla_tipo.currentIndex()
         if index_ed.row() == -1:  # No se ha seleccionado una fila
             self.errorMessageDialog = QtGui.QErrorMessage(self)
@@ -103,9 +118,12 @@ class MainWindow(QtGui.QMainWindow):
                  callback=self.load_data_tipo)
 
     def agregar_animal_clicked(self):
+        """Llama al formulario el cual permite agregar un animal"""
         self.formulario = Formulario(callback=self.tabla_tipo_clicked)
 
     def editar_animal_clicked(self):
+        """Llama al mismo formulario que el anterior, pero se pasan diferentes
+        parámetros, la que este permite editar la información del animal.-"""
         index = self.ui.tabla_animal.currentIndex()
         if index.row() == -1:  # No se ha seleccionado una fila
             self.errorMessageDialog = QtGui.QErrorMessage(self)
@@ -117,6 +135,9 @@ class MainWindow(QtGui.QMainWindow):
                 callback=self.tabla_tipo_clicked)
 
     def eliminar_animal_clicked(self):
+        """Se verifica que se haya seleccionado un animal de la grilla, luego
+        se pregunta si de verdad se desea eliminar este animal, luego se llama
+        al controlador el cual elimina el animal de la base de datos.-"""
         model = self.ui.tabla_animal.model()
         index = self.ui.tabla_animal.currentIndex()
         if index.row() == -1:  # No se ha seleccionado una fila
@@ -134,6 +155,13 @@ class MainWindow(QtGui.QMainWindow):
                 self.tabla_tipo_clicked()
 
     def despliega_imagenes(self, id_animal):
+        """Se reciben todas las una lista de objetos del tipo Imagen,
+        se crea una grid layout, donde se despliegan las imágenes, por cada
+        imagen se agrega un boton el cual es conectado a las funciones
+        crea_funcion_eliminar y crea_funcion_editar, que crear una funcion
+        por cada boton creado con lo cual luego se puede editar o eliminar las
+        imagenes, se carga una imagen vacia con el botón agregar, donde
+        el usuario posteriormente puede agregar la imagen que el desee"""
         self.borralayout(self.layout)
         imagenes = controller.obtener_imagenes(id_animal)
         cant_imagenes = len(imagenes)
@@ -211,12 +239,17 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.scrollAreaWidgetContents.setLayout(self.layout)
         self.ui.scrollAreaWidgetContents.show()
 
-    def borralayout(self, aLayout):  # Elimina todo del layout
+    def borralayout(self, aLayout):
+        """Elimina todo el layout y elementos del widget donde se
+        almacenan las imágenes y los botones de cada imágen"""
         while aLayout.count():
             item = aLayout.takeAt(0)
             item.widget().deleteLater()
 
     def crea_funcion_eliminar(self, id_imagen, ubicacion, id_animal):
+        """Crea una funcion para cada imagen que se agrega al widget
+        donde se despliegan la imagen, esta función permite eliminar la
+        fotografía"""
         def funcion_boton():
             mensaje = u"¿Desea eliminar la imagen seleccionada?"
             self.pregunta = QtGui.QMessageBox.question(self, self.tr("Eliminar"), mensaje
@@ -227,6 +260,9 @@ class MainWindow(QtGui.QMainWindow):
         return funcion_boton
 
     def crea_funcion_editar(self, id_imagen, ubicacion):
+        """Crea una funcion para cada imagen que se agrega al widget
+        donde se despliegan la imagen, esta función permite editar la
+        fotografía"""
         def funcion_boton():
             fileName = QtGui.QFileDialog.getOpenFileName(self,
                  "Elige la imagen", os.getcwd())
@@ -241,6 +277,12 @@ class MainWindow(QtGui.QMainWindow):
         return funcion_boton
 
     def boton_agregar_imagen(self):
+        """Permite al usuario elegir la fotografia desde su computador,
+        se verifica que se haya presionado algún animal, se abre la fotografía,
+        se obtienen la diferente información necesaria de esta, y luego se llama
+        al controlador con el cual agrega la fotografia al animal correspondiente
+        en la base de datos, además en esta funcion se copia la fotografía a la
+        carpeta /imagenes """
         index = self.ui.tabla_animal.currentIndex()
         if index.row() == -1:  # No se ha seleccionado una fila
             self.errorMessageDialog = QtGui.QErrorMessage(self)
