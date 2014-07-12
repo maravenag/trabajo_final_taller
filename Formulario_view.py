@@ -50,10 +50,15 @@ class Formulario(QtGui.QMainWindow):
             self.nombre_cientifico = self.ui.lineNombreSci.text()
             self.datos = self.ui.lineDatos.text()
             self.fk_id_tipo = self.id_tipo
-            controller.crear_animal(self.nombre_comun,
-                self.nombre_cientifico, self.datos, self.fk_id_tipo)
-            self.close()
-            self.callback()
+            if(self.nombre_comun == ""):
+                self.errorMessageDialog = QtGui.QErrorMessage(self)
+                self.errorMessageDialog.showMessage(
+                    "Debe ingresar nombre comun")
+            else:
+                controller.crear_animal(self.nombre_comun,
+                    self.nombre_cientifico, self.datos, self.fk_id_tipo)
+                self.close()
+                self.callback()
 
     def load_info(self):
         animal = controller.carga_animal(self.animal)
@@ -73,8 +78,6 @@ class Formulario(QtGui.QMainWindow):
             self.nombre_cientifico, self.datos, self.fk_id_tipo)
         self.close()
         self.callback()
-
-        #PROBLEMA CON EL COMBOBOX
 
     def cerrar(self):
         self.close()

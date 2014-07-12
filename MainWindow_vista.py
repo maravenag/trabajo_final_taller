@@ -11,6 +11,7 @@ from Formulario_view import Formulario
 import os
 import shutil
 
+
 class MainWindow(QtGui.QMainWindow):
 
     def __init__(self, parent=None):
@@ -102,7 +103,7 @@ class MainWindow(QtGui.QMainWindow):
                  callback=self.load_data_tipo)
 
     def agregar_animal_clicked(self):
-        self.formulario = Formulario()
+        self.formulario = Formulario(callback=self.tabla_tipo_clicked)
 
     def editar_animal_clicked(self):
         index = self.ui.tabla_animal.currentIndex()
@@ -112,7 +113,8 @@ class MainWindow(QtGui.QMainWindow):
             return False
         else:
             animal = index.data()
-            self.formulario = Formulario(editar=1, nom_animal=animal)
+            self.formulario = Formulario(editar=1, nom_animal=animal,
+                callback=self.tabla_tipo_clicked)
 
     def eliminar_animal_clicked(self):
         model = self.ui.tabla_animal.model()
@@ -246,7 +248,7 @@ class MainWindow(QtGui.QMainWindow):
             return False
         else:
             fileName = QtGui.QFileDialog.getOpenFileName(self,
-                 "Elige la imagen", os.getcwd(),"*.jpg *.jpeg *.png *.gif")
+                 "Elige la imagen", os.getcwd(), "*.jpg *.jpeg *.png *.gif")
             directorio = fileName[0]
             nombre_foto = QtCore.QFileInfo(directorio).fileName()
             shutil.copy2(directorio, "imagenes/{0}".format(nombre_foto))
