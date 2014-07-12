@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sat Jul 12 01:20:19 2014
+# Created: Sat Jul 12 13:13:00 2014
 #      by: pyside-uic 0.2.13 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -44,9 +44,6 @@ class Ui_MainWindow(object):
         self.btn_agregar_animal.setObjectName("btn_agregar_animal")
         self.verticalLayout_3.addWidget(self.btn_agregar_animal)
         self.horizontalLayout_2.addLayout(self.verticalLayout_3)
-        self.widget = QtGui.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(430, 20, 481, 411))
-        self.widget.setObjectName("widget")
         self.label = QtGui.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(11, 515, 143, 17))
         font = QtGui.QFont()
@@ -105,6 +102,25 @@ class Ui_MainWindow(object):
         self.label_datos.setMargin(0)
         self.label_datos.setObjectName("label_datos")
         self.verticalLayout.addWidget(self.label_datos)
+        self.scrollArea = QtGui.QScrollArea(self.centralwidget)
+        self.scrollArea.setGeometry(QtCore.QRect(410, 20, 501, 431))
+        self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtGui.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 486, 429))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.widget = QtGui.QWidget(self.scrollAreaWidgetContents)
+        self.widget.setGeometry(QtCore.QRect(0, 0, 491, 431))
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
+        self.widget.setSizePolicy(sizePolicy)
+        self.widget.setMaximumSize(QtCore.QSize(491, 16777215))
+        self.widget.setObjectName("widget")
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")

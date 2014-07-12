@@ -102,7 +102,7 @@ class MainWindow(QtGui.QMainWindow):
                  callback=self.load_data_tipo)
 
     def agregar_animal_clicked(self):
-        self.formulario = Formulario(callback = self.tabla_tipo_clicked)
+        self.formulario = Formulario()
 
     def editar_animal_clicked(self):
         index = self.ui.tabla_animal.currentIndex()
@@ -112,8 +112,7 @@ class MainWindow(QtGui.QMainWindow):
             return False
         else:
             animal = index.data()
-            self.formulario = Formulario(editar=1, nom_animal=animal,
-                callback = self.tabla_tipo_clicked)
+            self.formulario = Formulario(editar=1, nom_animal=animal)
 
     def eliminar_animal_clicked(self):
         model = self.ui.tabla_animal.model()
@@ -154,7 +153,7 @@ class MainWindow(QtGui.QMainWindow):
                     layoutsV[(i, j)] = QtGui.QVBoxLayout()
                     layoutsH[(i, j)] = QtGui.QHBoxLayout()
                     btns_el[(i, j)] = QtGui.QPushButton("Eliminar")
-                    self.funcion_boton_eliminar = self.crea_funcion_eliminar(id_imagen, ubicacion) # Crea un funcion para el boton creado
+                    self.funcion_boton_eliminar = self.crea_funcion_eliminar(id_imagen, ubicacion,id_animal) # Crea un funcion para el boton creado
                     btns_el[(i, j)].clicked.connect(self.funcion_boton_eliminar) # Conecto el boton creado con la funcion
                     btns_ed[(i, j)] = QtGui.QPushButton("Editar")
                     self.funcion_boton_editar = self.crea_funcion_editar(id_imagen) # Crea un funcion para el boton creado
@@ -186,6 +185,21 @@ class MainWindow(QtGui.QMainWindow):
                     widget[(i, j)].setLayout(layoutsV[(i, j)])
                     self.layout.addWidget(widget[(i, j)], i, j)
 
+        if (cant_imagenes / 3 == filas):
+            btn_agregar = QtGui.QPushButton("Agregar")
+            btn_agregar.clicked.connect(self.boton_agregar_imagen)
+            layoutsV[(filas + 1, 1)] = QtGui.QVBoxLayout()
+            widget[(filas + 1, 1)] = QtGui.QWidget()
+            labels[(filas + 1, 1)] = QtGui.QLabel()
+            self.myPixmap = QtGui.QPixmap("imagenes/sin_imagen.jpg")
+            self.myScaledPixmap = self.myPixmap.scaled(200, 200,
+                QtCore.Qt.KeepAspectRatio)
+            labels[(filas + 1, 1)].setPixmap(self.myScaledPixmap)
+            layoutsV[(filas + 1, 1)].addWidget(labels[(filas + 1, 1)])
+            layoutsV[(filas + 1, 1)].addWidget(btn_agregar)
+            widget[(filas + 1, 1)].setLayout(layoutsV[(filas + 1, 1)])
+            self.layout.addWidget(widget[(filas + 1, 1)], filas + 1, 1)
+
         self.ui.widget.setLayout(self.layout)
         self.ui.widget.show()
 
@@ -194,9 +208,14 @@ class MainWindow(QtGui.QMainWindow):
             item = aLayout.takeAt(0)
             item.widget().deleteLater()
 
-    def crea_funcion_eliminar(self, id_imagen, ubicacion):
+    def crea_funcion_eliminar(self, id_imagen, ubicacion,id_animal):
         def funcion_boton():
+            mensaje = u"¿Desea eliminar la imagen seleccionada?"
+            self.pregunta = QtGui.QMessageBox.question(self, self.tr("Eliminar"), mensaje
+                 , QtGui.QMessageBox.StandardButton.Yes | QtGui.QMessageBox.StandardButton.No)
+            if self.pregunta == QtGui.QMessageBox.Yes:
                 controller.elimina_foto(id_imagen, ubicacion)
+                self.despliega_imagenes(id_animal)
         return funcion_boton
 
     def crea_funcion_editar(self, id_imagen):
@@ -212,15 +231,15 @@ class MainWindow(QtGui.QMainWindow):
             return False
         else:
             fileName = QtGui.QFileDialog.getOpenFileName(self,
-                 "Elige la imagen", os.getcwd())
+                "Elige la imagen", os.getcwd())
             directorio = fileName[0]
             nombre_foto = QtCore.QFileInfo(directorio).fileName()
             shutil.copy2(directorio, "imagenes/{0}".format(nombre_foto))
 
             index = self.ui.tabla_animal.currentIndex()
             animal = controller.carga_animal(index.data())
-            controller.agregar_foto(animal.id_animal, nombre_foto,
-                callback=self.tabla_animal_clicked)
+            controller.agregar_foto(animal.id_animal, nombre_foto)
+            self.despliega_imagenes(animal.id_animal)
 
 def run():
 
