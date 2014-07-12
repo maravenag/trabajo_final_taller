@@ -102,7 +102,7 @@ class MainWindow(QtGui.QMainWindow):
                  callback=self.load_data_tipo)
 
     def agregar_animal_clicked(self):
-        self.formulario = Formulario()
+        self.formulario = Formulario(callback = self.tabla_tipo_clicked)
 
     def editar_animal_clicked(self):
         index = self.ui.tabla_animal.currentIndex()
@@ -112,7 +112,8 @@ class MainWindow(QtGui.QMainWindow):
             return False
         else:
             animal = index.data()
-            self.formulario = Formulario(editar=1, nom_animal=animal)
+            self.formulario = Formulario(editar=1, nom_animal=animal,
+                callback = self.tabla_tipo_clicked)
 
     def eliminar_animal_clicked(self):
         model = self.ui.tabla_animal.model()
@@ -218,7 +219,8 @@ class MainWindow(QtGui.QMainWindow):
 
             index = self.ui.tabla_animal.currentIndex()
             animal = controller.carga_animal(index.data())
-            controller.agregar_foto(animal.id_animal, nombre_foto)
+            controller.agregar_foto(animal.id_animal, nombre_foto,
+                callback=self.tabla_animal_clicked)
 
 def run():
 

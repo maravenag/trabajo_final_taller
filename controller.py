@@ -71,7 +71,8 @@ def elimina_foto(id_imagen, ubicacion):
     Imagen.elimina_foto(id_imagen, ubicacion)
 
 
-def agregar_foto(id_animal, nombre_foto):
+def agregar_foto(id_animal, nombre_foto, callback):
+
     ubicacion = "imagenes/{0}".format(nombre_foto)
     imagen = Image.open(ubicacion)
     tamano = "{0}x{1}".format(imagen.size[0], imagen.size[1])
@@ -83,3 +84,4 @@ def agregar_foto(id_animal, nombre_foto):
     foto.resolucion = tamano
     foto.fk_id_animal = id_animal
     foto.insertar_imagen()
+    callback()

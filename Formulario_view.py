@@ -8,9 +8,10 @@ class Formulario(QtGui.QMainWindow):
     nom_animal = ""
     editar = None
 
-    def __init__(self, parent=None, editar=None, nom_animal=""):
+    def __init__(self, parent=None, editar=None, nom_animal="", callback=None):
 
         QtGui.QMainWindow.__init__(self, parent)
+        self.callback = callback
         self.editar = editar
         self.animal = nom_animal
         self.id_animal = None
@@ -52,6 +53,7 @@ class Formulario(QtGui.QMainWindow):
             controller.crear_animal(self.nombre_comun,
                 self.nombre_cientifico, self.datos, self.fk_id_tipo)
             self.close()
+            self.callback()
 
     def load_info(self):
         animal = controller.carga_animal(self.animal)
@@ -70,6 +72,7 @@ class Formulario(QtGui.QMainWindow):
         controller.update_animal(self.id_animal, self.nombre_comun,
             self.nombre_cientifico, self.datos, self.fk_id_tipo)
         self.close()
+        self.callback()
 
         #PROBLEMA CON EL COMBOBOX
 
