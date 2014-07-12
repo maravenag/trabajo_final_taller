@@ -6,69 +6,80 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>327</width>
-    <height>280</height>
+    <width>299</width>
+    <height>269</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Formulario</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>0</y>
-     <width>304</width>
-     <height>271</height>
+     <y>2</y>
+     <width>271</width>
+     <height>251</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QLineEdit" name="lineNombre_2">
-        <property name="inputMask">
-         <string/>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="placeholderText">
-         <string>Nombre</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineNombreSci">
-        <property name="placeholderText">
-         <string>Nombre Científico</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineDatos">
-        <property name="placeholderText">
-         <string>Datos</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLineEdit" name="lineNombre_2">
+          <property name="inputMask">
+           <string/>
+          </property>
           <property name="text">
-           <string>Tipo de Animal</string>
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Nombre</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox">
-          <property name="editable">
-           <bool>false</bool>
+         <widget class="QLineEdit" name="lineNombreSci">
+          <property name="placeholderText">
+           <string>Nombre Científico</string>
           </property>
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Datos</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="lineDatos"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Tipo de Animal</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

@@ -76,7 +76,7 @@ class Formulario(QtGui.QMainWindow):
         self.id_animal = animal.id_animal
         self.ui.lineNombreSci.setText(animal.nombre_cientifico)
         self.ui.lineNombre_2.setText(animal.nombre_comun)
-        self.ui.lineDatos.setText(animal.datos)
+        self.ui.lineDatos.setPlainText(animal.datos)
         self.ui.comboBox.setCurrentIndex(animal.fk_id_tipo - 1)
         self.id_tipo = animal.fk_id_tipo
 
@@ -86,7 +86,7 @@ class Formulario(QtGui.QMainWindow):
         información del animal"""
         self.nombre_comun = self.ui.lineNombre_2.text()
         self.nombre_cientifico = self.ui.lineNombreSci.text()
-        self.datos = self.ui.lineDatos.text()
+        self.datos = self.ui.lineDatos.toPlainText()
         self.fk_id_tipo = self.id_tipo
         controller.update_animal(self.id_animal, self.nombre_comun,
             self.nombre_cientifico, self.datos, self.fk_id_tipo)
