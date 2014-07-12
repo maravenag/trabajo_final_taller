@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sat Jul 12 13:13:00 2014
+# Created: Sat Jul 12 15:52:25 2014
 #      by: pyside-uic 0.2.13 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(923, 637)
+        MainWindow.resize(1097, 637)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabla_tipo = QtGui.QTableView(self.centralwidget)
@@ -103,23 +103,20 @@ class Ui_MainWindow(object):
         self.label_datos.setObjectName("label_datos")
         self.verticalLayout.addWidget(self.label_datos)
         self.scrollArea = QtGui.QScrollArea(self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(410, 20, 501, 431))
-        self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 486, 429))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.widget = QtGui.QWidget(self.scrollAreaWidgetContents)
-        self.widget.setGeometry(QtCore.QRect(0, 0, 491, 431))
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Maximum)
+        self.scrollArea.setGeometry(QtCore.QRect(410, 10, 671, 431))
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
-        self.widget.setSizePolicy(sizePolicy)
-        self.widget.setMaximumSize(QtCore.QSize(491, 16777215))
-        self.widget.setObjectName("widget")
+        sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy)
+        self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtGui.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 669, 429))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
@@ -130,7 +127,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Animales", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_editar_tipo.setText(QtGui.QApplication.translate("MainWindow", "Editar Tipo", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_editar_animal.setText(QtGui.QApplication.translate("MainWindow", "Editar Animal", None, QtGui.QApplication.UnicodeUTF8))
         self.eliminar_animal.setText(QtGui.QApplication.translate("MainWindow", "Eliminar Animal", None, QtGui.QApplication.UnicodeUTF8))

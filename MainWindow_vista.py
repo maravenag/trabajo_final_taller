@@ -206,8 +206,8 @@ class MainWindow(QtGui.QMainWindow):
             widget[(filas + 1, 1)].setLayout(layoutsV[(filas + 1, 1)])
             self.layout.addWidget(widget[(filas + 1, 1)], filas + 1, 1)
 
-        self.ui.widget.setLayout(self.layout)
-        self.ui.widget.show()
+        self.ui.scrollAreaWidgetContents.setLayout(self.layout)
+        self.ui.scrollAreaWidgetContents.show()
 
     def borralayout(self, aLayout):  # Elimina todo del layout
         while aLayout.count():
@@ -246,7 +246,7 @@ class MainWindow(QtGui.QMainWindow):
             return False
         else:
             fileName = QtGui.QFileDialog.getOpenFileName(self,
-                 "Elige la imagen", os.getcwd())
+                 "Elige la imagen", os.getcwd(),"*.jpg *.jpeg *.png *.gif")
             directorio = fileName[0]
             nombre_foto = QtCore.QFileInfo(directorio).fileName()
             shutil.copy2(directorio, "imagenes/{0}".format(nombre_foto))
