@@ -126,7 +126,8 @@ class MainWindow(QtGui.QMainWindow):
             self.pregunta = QtGui.QMessageBox.question(self, self.tr("Eliminar"), mensaje
                  , QtGui.QMessageBox.StandardButton.Yes | QtGui.QMessageBox.StandardButton.No)
             if self.pregunta == QtGui.QMessageBox.Yes:
-                animal = model.index(index.row(), 0, QtCore.QModelIndex()).data()
+                animal = model.index(
+                    index.row(), 0, QtCore.QModelIndex()).data()
                 controller.elimina_animal(animal)
                 self.tabla_tipo_clicked()
 
@@ -147,17 +148,22 @@ class MainWindow(QtGui.QMainWindow):
             for j in range(3):
                 cont = cont + 1
                 if(k <= cant_imagenes - 1):
-                    ubicacion = (imagenes[k].__dict__["ubicacion"].decode('utf-8'))
+                    ubicacion = (imagenes[k].__dict__["ubicacion"].decode(
+                        'utf-8'))
                     id_imagen = (imagenes[k].__dict__["id_imagen"])
                     widget[(i, j)] = QtGui.QWidget()
                     layoutsV[(i, j)] = QtGui.QVBoxLayout()
                     layoutsH[(i, j)] = QtGui.QHBoxLayout()
                     btns_el[(i, j)] = QtGui.QPushButton("Eliminar")
-                    self.funcion_boton_eliminar = self.crea_funcion_eliminar(id_imagen, ubicacion,id_animal) # Crea un funcion para el boton creado
-                    btns_el[(i, j)].clicked.connect(self.funcion_boton_eliminar) # Conecto el boton creado con la funcion
+                    self.funcion_boton_eliminar = self.crea_funcion_eliminar(
+                        id_imagen, ubicacion, id_animal)
+                    btns_el[(i, j)].clicked.connect(
+                        self.funcion_boton_eliminar)
                     btns_ed[(i, j)] = QtGui.QPushButton("Editar")
-                    self.funcion_boton_editar = self.crea_funcion_editar(id_imagen) # Crea un funcion para el boton creado
-                    btns_ed[(i, j)].clicked.connect(self.funcion_boton_editar) # Conecto el boton creado con la funcion
+                    self.funcion_boton_editar = self.crea_funcion_editar(
+                        id_imagen, ubicacion)
+                    btns_ed[(i, j)].clicked.connect(
+                        self.funcion_boton_editar)
                     labels[(i, j)] = QtGui.QLabel(ubicacion)
                     self.myPixmap = QtGui.QPixmap(ubicacion)
                     self.myScaledPixmap = self.myPixmap.scaled(200, 200,
@@ -208,7 +214,7 @@ class MainWindow(QtGui.QMainWindow):
             item = aLayout.takeAt(0)
             item.widget().deleteLater()
 
-    def crea_funcion_eliminar(self, id_imagen, ubicacion,id_animal):
+    def crea_funcion_eliminar(self, id_imagen, ubicacion, id_animal):
         def funcion_boton():
             mensaje = u"¿Desea eliminar la imagen seleccionada?"
             self.pregunta = QtGui.QMessageBox.question(self, self.tr("Eliminar"), mensaje
@@ -218,9 +224,18 @@ class MainWindow(QtGui.QMainWindow):
                 self.despliega_imagenes(id_animal)
         return funcion_boton
 
-    def crea_funcion_editar(self, id_imagen):
+    def crea_funcion_editar(self, id_imagen, ubicacion):
         def funcion_boton():
-            print id_imagen  # Acá va la logica del update foto
+            fileName = QtGui.QFileDialog.getOpenFileName(self,
+                 "Elige la imagen", os.getcwd())
+            directorio = fileName[0]
+            nombre_foto = QtCore.QFileInfo(directorio).fileName()
+            ubicacion_nueva_foto = "imagenes/{0}".format(nombre_foto)
+            shutil.copy2(directorio, ubicacion_nueva_foto)
+
+            controller.actualiza_foto(id_imagen, ubicacion_nueva_foto,
+                callback=self.tabla_animal_clicked)
+
         return funcion_boton
 
     def boton_agregar_imagen(self):
@@ -231,15 +246,16 @@ class MainWindow(QtGui.QMainWindow):
             return False
         else:
             fileName = QtGui.QFileDialog.getOpenFileName(self,
-                "Elige la imagen", os.getcwd())
+                 "Elige la imagen", os.getcwd())
             directorio = fileName[0]
             nombre_foto = QtCore.QFileInfo(directorio).fileName()
             shutil.copy2(directorio, "imagenes/{0}".format(nombre_foto))
 
             index = self.ui.tabla_animal.currentIndex()
             animal = controller.carga_animal(index.data())
-            controller.agregar_foto(animal.id_animal, nombre_foto)
-            self.despliega_imagenes(animal.id_animal)
+            controller.agregar_foto(animal.id_animal, nombre_foto,
+                callback=self.tabla_animal_clicked)
+
 
 def run():
 

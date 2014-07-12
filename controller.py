@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from model import Animal, Tipo, Imagen
 from PIL import Image
+import os
 
 
 def carga_tipos():
@@ -67,6 +68,7 @@ def obtener_imagenes(id_animal):
     imagenes = Imagen.imagenes(id_animal)
     return imagenes
 
+
 def elimina_foto(id_imagen, ubicacion):
     Imagen.elimina_foto(id_imagen, ubicacion)
 
@@ -84,4 +86,19 @@ def agregar_foto(id_animal, nombre_foto, callback):
     foto.resolucion = tamano
     foto.fk_id_animal = id_animal
     foto.insertar_imagen()
+    callback()
+
+
+def actualiza_foto(id_imagen, ubicacion_foto_nueva, callback):
+
+    imagen_nueva = Image.open(ubicacion_foto_nueva)
+    tamano = "{0}x{1}".format(imagen_nueva.size[0], imagen_nueva.size[1])
+    formato = imagen_nueva.format
+
+    imagen = Imagen(id_imagen=id_imagen)
+    os.remove(imagen.ubicacion)
+    imagen.ubicacion = ubicacion_foto_nueva
+    imagen.formato = formato
+    imagen.resolucion = tamano
+    imagen.update_imagen()
     callback()

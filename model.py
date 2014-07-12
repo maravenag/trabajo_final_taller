@@ -271,6 +271,9 @@ class Imagen(Animal):
         self.resolucion = resolucion
         self.fk_id_animal = fk_id_animal
 
+        if id_imagen is not None:
+            self.load_imagen()
+
     def insertar_imagen(self):
         query = "INSERT INTO imagen "
         query += "(ubicacion,formato,resolucion,fk_id_animal) "
@@ -290,6 +293,44 @@ class Imagen(Animal):
         except sqlite3.Error as e:
             print "An error occurred:", e.args[0]
             return None
+
+    def load_imagen(self):
+        conn = connect()
+        query = "SELECT * FROM imagen "
+        query += "WHERE id_imagen = ?"
+        result = conn.execute(query, [self.id_imagen])
+        row = result.fetchone()
+        conn.close()
+        if row is not None:
+            self.id_imagen = row[0]
+            self.ubicacion = row[1]
+            self.formato = row[2]
+            self.resolucion = row[3]
+            self.fk_id_animal = row[4]
+        else:
+            self.id_imagen = None
+            print "El registro no existe"
+
+    def update_imagen(self):
+        query = "UPDATE imagen "
+        query += "SET ubicacion = ?, "
+        query += "formato = ?, "
+        query += "resolucion = ? "
+        query += "WHERE id_imagen = ?"
+        try:
+            conn = connect()
+            conn.execute(
+                query, [
+                    self.ubicacion,
+                    self.formato,
+                    self.resolucion,
+                    self.id_imagen])
+            conn.commit()
+            conn.close()
+            return True
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return False
 
     @classmethod
     def imagenes(cls, fk_id_animal):
@@ -325,12 +366,3 @@ class Imagen(Animal):
         except sqlite3.Error as e:
             print "An error occurred:", e.args[0]
             return False
-
-if __name__ == '__main__':
-
-    caballo = Imagen()
-    caballo.ubicacion= "imagenes/caballo_2.jpg"
-    caballo.formato="JPG",
-    caballo.resolucion="234x432",
-    caballo.fk_id_animal= 3
-    caballo.insertar_imagen()
