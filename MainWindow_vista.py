@@ -9,7 +9,6 @@ from MainWindow import Ui_MainWindow
 from EditarTipo_view import EditarTipo
 from Formulario_view import Formulario
 
-
 class MainWindow(QtGui.QMainWindow):
 
     def __init__(self, parent=None):
@@ -140,19 +139,23 @@ class MainWindow(QtGui.QMainWindow):
         btns_ed = {}
         filas = math.ceil(cant_imagenes / 3.0)
         k = 0
-        print cant_imagenes
         cont = 0
         for i in range(int(filas)):
             for j in range(3):
                 cont = cont + 1
-                if(k < cant_imagenes - 1):
-                    ubicacion = (
-                        imagenes[k].__dict__["ubicacion"]).decode('utf-8')
+                if(k <= cant_imagenes - 1):
+                    ubicacion = (imagenes[k].__dict__["ubicacion"].decode('utf-8'))
+                    id_imagen = (imagenes[k].__dict__["id_imagen"])
+                    print id_imagen
                     widget[(i, j)] = QtGui.QWidget()
                     layoutsV[(i, j)] = QtGui.QVBoxLayout()
                     layoutsH[(i, j)] = QtGui.QHBoxLayout()
                     btns_el[(i, j)] = QtGui.QPushButton("Eliminar")
+                    self.funcion_boton_eliminar = self.crea_funcion_eliminar(id_imagen) # Crea un funcion para el boton creado
+                    btns_el[(i, j)].clicked.connect(self.funcion_boton_eliminar) # Conecto el boton creado con la funcion
                     btns_ed[(i, j)] = QtGui.QPushButton("Editar")
+                    self.funcion_boton_editar = self.crea_funcion_editar(id_imagen) # Crea un funcion para el boton creado
+                    btns_ed[(i, j)].clicked.connect(self.funcion_boton_editar) # Conecto el boton creado con la funcion
                     labels[(i, j)] = QtGui.QLabel(ubicacion)
                     self.myPixmap = QtGui.QPixmap(ubicacion)
                     self.myScaledPixmap = self.myPixmap.scaled(200, 200,
@@ -182,13 +185,21 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.widget.setLayout(self.layout)
         self.ui.widget.show()
 
-
     def borralayout(self, aLayout):  # Elimina todo del layout
-
         while aLayout.count():
             item = aLayout.takeAt(0)
             item.widget().deleteLater()
 
+    def crea_funcion_eliminar(self, id_imagen):
+        def funcion_boton():
+                print id_imagen
+                controller.elimina_foto(id_imagen)
+        return funcion_boton
+
+    def crea_funcion_editar(self, id_imagen):
+        def funcion_boton():
+            print id_imagen  # Acá va la logica del update foto
+        return funcion_boton
 
 def run():
 

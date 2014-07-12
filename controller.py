@@ -65,3 +65,6 @@ def elimina_animal(nombre):
 def obtener_imagenes(id_animal):
     imagenes = Imagen.imagenes(id_animal)
     return imagenes
+
+def elimina_foto(id_imagen):
+    Imagen.elimina_foto(id_imagen)

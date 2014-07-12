@@ -311,11 +311,24 @@ class Imagen(Animal):
             print "An error occurred:", e.args[0]
             return None
 
+    @classmethod
+    def elimina_foto(cls, id_imagen):
+        query = "DELETE FROM imagen "
+        query += "WHERE id_imagen = '{}'".format(id_imagen)
+        try:
+            conn = connect()
+            conn.execute(query)
+            conn.commit()
+            conn.close()
+            return True
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return False
 
-if __name__ == "__main__":
-
-    imagenes = Imagen.imagenes(1)
-    for row in imagenes:
-        print row.__dict__["ubicacion"]
-
-
+if __name__ == '__main__':
+    caballo = Imagen()
+    caballo.ubicacion= """imagenes/caballo_2.jpg"""
+    caballo.formato="JPG",
+    caballo.resolucion="234x432",
+    caballo.fk_id_animal= 3
+    caballo.insertar_imagen()
