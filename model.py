@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sqlite3
-
+import os
 
 def connect():
 
@@ -312,7 +312,7 @@ class Imagen(Animal):
             return None
 
     @classmethod
-    def elimina_foto(cls, id_imagen):
+    def elimina_foto(cls, id_imagen, ubicacion):
         query = "DELETE FROM imagen "
         query += "WHERE id_imagen = '{}'".format(id_imagen)
         try:
@@ -320,14 +320,16 @@ class Imagen(Animal):
             conn.execute(query)
             conn.commit()
             conn.close()
+            os.remove(ubicacion)
             return True
         except sqlite3.Error as e:
             print "An error occurred:", e.args[0]
             return False
 
 if __name__ == '__main__':
+
     caballo = Imagen()
-    caballo.ubicacion= """imagenes/caballo_2.jpg"""
+    caballo.ubicacion= "imagenes/caballo_2.jpg"
     caballo.formato="JPG",
     caballo.resolucion="234x432",
     caballo.fk_id_animal= 3

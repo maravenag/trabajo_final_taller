@@ -8,6 +8,8 @@ from PySide import QtGui, QtCore
 from MainWindow import Ui_MainWindow
 from EditarTipo_view import EditarTipo
 from Formulario_view import Formulario
+import os
+import shutil
 
 class MainWindow(QtGui.QMainWindow):
 
@@ -50,6 +52,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.tabla_tipo.setColumnWidth(0, 187)
 
     def tabla_tipo_clicked(self):
+        self.borralayout(self.layout)
         index = self.ui.tabla_tipo.currentIndex()
         id_tipo = index.row() + 1
         tipo = controller.carga_info_tipo(id_tipo)
@@ -146,12 +149,11 @@ class MainWindow(QtGui.QMainWindow):
                 if(k <= cant_imagenes - 1):
                     ubicacion = (imagenes[k].__dict__["ubicacion"].decode('utf-8'))
                     id_imagen = (imagenes[k].__dict__["id_imagen"])
-                    print id_imagen
                     widget[(i, j)] = QtGui.QWidget()
                     layoutsV[(i, j)] = QtGui.QVBoxLayout()
                     layoutsH[(i, j)] = QtGui.QHBoxLayout()
                     btns_el[(i, j)] = QtGui.QPushButton("Eliminar")
-                    self.funcion_boton_eliminar = self.crea_funcion_eliminar(id_imagen) # Crea un funcion para el boton creado
+                    self.funcion_boton_eliminar = self.crea_funcion_eliminar(id_imagen, ubicacion) # Crea un funcion para el boton creado
                     btns_el[(i, j)].clicked.connect(self.funcion_boton_eliminar) # Conecto el boton creado con la funcion
                     btns_ed[(i, j)] = QtGui.QPushButton("Editar")
                     self.funcion_boton_editar = self.crea_funcion_editar(id_imagen) # Crea un funcion para el boton creado
@@ -170,6 +172,7 @@ class MainWindow(QtGui.QMainWindow):
                     k = k + 1
                 if(cont == cant_imagenes + 1):
                     btn_agregar = QtGui.QPushButton("Agregar")
+                    btn_agregar.clicked.connect(self.boton_agregar_imagen)
                     layoutsV[(i, j)] = QtGui.QVBoxLayout()
                     widget[(i, j)] = QtGui.QWidget()
                     labels[(i, j)] = QtGui.QLabel()
@@ -190,16 +193,32 @@ class MainWindow(QtGui.QMainWindow):
             item = aLayout.takeAt(0)
             item.widget().deleteLater()
 
-    def crea_funcion_eliminar(self, id_imagen):
+    def crea_funcion_eliminar(self, id_imagen, ubicacion):
         def funcion_boton():
-                print id_imagen
-                controller.elimina_foto(id_imagen)
+                controller.elimina_foto(id_imagen, ubicacion)
         return funcion_boton
 
     def crea_funcion_editar(self, id_imagen):
         def funcion_boton():
             print id_imagen  # Acá va la logica del update foto
         return funcion_boton
+
+    def boton_agregar_imagen(self):
+        index = self.ui.tabla_animal.currentIndex()
+        if index.row() == -1:  # No se ha seleccionado una fila
+            self.errorMessageDialog = QtGui.QErrorMessage(self)
+            self.errorMessageDialog.showMessage("Debe seleccionar un animal")
+            return False
+        else:
+            fileName = QtGui.QFileDialog.getOpenFileName(self,
+                 "Elige la imagen", os.getcwd())
+            directorio = fileName[0]
+            nombre_foto = QtCore.QFileInfo(directorio).fileName()
+            shutil.copy2(directorio, "imagenes/{0}".format(nombre_foto))
+
+            index = self.ui.tabla_animal.currentIndex()
+            animal = controller.carga_animal(index.data())
+            controller.agregar_foto(animal.id_animal, nombre_foto)
 
 def run():
 

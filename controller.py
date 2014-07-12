@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from model import Animal, Tipo, Imagen
+from PIL import Image
 
 
 def carga_tipos():
@@ -66,5 +67,19 @@ def obtener_imagenes(id_animal):
     imagenes = Imagen.imagenes(id_animal)
     return imagenes
 
-def elimina_foto(id_imagen):
-    Imagen.elimina_foto(id_imagen)
+def elimina_foto(id_imagen, ubicacion):
+    Imagen.elimina_foto(id_imagen, ubicacion)
+
+
+def agregar_foto(id_animal, nombre_foto):
+    ubicacion = "imagenes/{0}".format(nombre_foto)
+    imagen = Image.open(ubicacion)
+    tamano = "{0}x{1}".format(imagen.size[0], imagen.size[1])
+    formato = imagen.format
+
+    foto = Imagen()
+    foto.ubicacion = ubicacion
+    foto.formato = formato
+    foto.resolucion = tamano
+    foto.fk_id_animal = id_animal
+    foto.insertar_imagen()
