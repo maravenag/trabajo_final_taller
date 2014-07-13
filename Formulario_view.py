@@ -56,7 +56,7 @@ class Formulario(QtGui.QMainWindow):
         else:
             self.nombre_comun = self.ui.lineNombre_2.text()
             self.nombre_cientifico = self.ui.lineNombreSci.text()
-            self.datos = self.ui.lineDatos.text()
+            self.datos = self.ui.lineDatos.toPlainText()
             self.fk_id_tipo = self.id_tipo
             if(self.nombre_comun == ""):
                 self.errorMessageDialog = QtGui.QErrorMessage(self)
