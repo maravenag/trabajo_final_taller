@@ -1,0 +1,773 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module EditarTipo_view</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>EditarTipo_view</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/yerko/trabajo_final_taller/EditarTipo_view.py">/home/yerko/trabajo_final_taller/EditarTipo_view.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PySide.QtGui.html">PySide.QtGui</a><br>
+</td><td width="25%" valign=top><a href="controller.html">controller</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="PySide.QtGui.html#QDialog">PySide.QtGui.QDialog</a>(<a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="EditarTipo_view.html#EditarTipo">EditarTipo</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EditarTipo">class <strong>EditarTipo</strong></a>(<a href="PySide.QtGui.html#QDialog">PySide.QtGui.QDialog</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="EditarTipo_view.html#EditarTipo">EditarTipo</a></dd>
+<dd><a href="PySide.QtGui.html#QDialog">PySide.QtGui.QDialog</a></dd>
+<dd><a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a></dd>
+<dd><a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a></dd>
+<dd><a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a></dd>
+<dd>Shiboken.Object</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EditarTipo-__init__"><strong>__init__</strong></a>(self, parent<font color="#909090">=None</font>, id_tipo<font color="#909090">=None</font>, callback<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EditarTipo-aceptar"><strong>aceptar</strong></a>(self)</dt><dd><tt>Al&nbsp;aceptar&nbsp;se&nbsp;recibe&nbsp;la&nbsp;info&nbsp;de&nbsp;la&nbsp;vista,&nbsp;se&nbsp;llama&nbsp;al&nbsp;controlador<br>
+el&nbsp;cual&nbsp;envia&nbsp;la&nbsp;info&nbsp;a&nbsp;través&nbsp;de&nbsp;la&nbsp;función&nbsp;actualiza_tipo,&nbsp;la&nbsp;cual<br>
+es&nbsp;luego&nbsp;procesada&nbsp;en&nbsp;el&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="EditarTipo-cancelar"><strong>cancelar</strong></a>(self)</dt><dd><tt>Se&nbsp;cierra&nbsp;la&nbsp;ventana</tt></dd></dl>
+
+<dl><dt><a name="EditarTipo-cargar_info"><strong>cargar_info</strong></a>(self, id_tipo)</dt><dd><tt>Llama&nbsp;al&nbsp;controlador,&nbsp;el&nbsp;cual&nbsp;envia&nbsp;la&nbsp;info&nbsp;del&nbsp;tipo&nbsp;de&nbsp;animal<br>
+la&nbsp;cual&nbsp;es&nbsp;colocada&nbsp;dentro&nbsp;de&nbsp;los&nbsp;respectivos&nbsp;cuadros&nbsp;de&nbsp;texto</tt></dd></dl>
+
+<dl><dt><a name="EditarTipo-signals"><strong>signals</strong></a>(self)</dt><dd><tt>Se&nbsp;conectan&nbsp;los&nbsp;botones</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>id_tipo</strong> = None</dl>
+
+<dl><dt><strong>staticMetaObject</strong> = &lt;PySide.QtCore.QMetaObject object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="PySide.QtGui.html#QDialog">PySide.QtGui.QDialog</a>:<br>
+<dl><dt><a name="EditarTipo-__hash__"><strong>__hash__</strong></a>(...)</dt><dd><tt>x.<a href="#EditarTipo-__hash__">__hash__</a>()&nbsp;&lt;==&gt;&nbsp;hash(x)</tt></dd></dl>
+
+<dl><dt><a name="EditarTipo-accept"><strong>accept</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-adjustPosition"><strong>adjustPosition</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-closeEvent"><strong>closeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-contextMenuEvent"><strong>contextMenuEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-done"><strong>done</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-eventFilter"><strong>eventFilter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-exec_"><strong>exec_</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isSizeGripEnabled"><strong>isSizeGripEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-keyPressEvent"><strong>keyPressEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-minimumSizeHint"><strong>minimumSizeHint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-open"><strong>open</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-reject"><strong>reject</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-resizeEvent"><strong>resizeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-result"><strong>result</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setModal"><strong>setModal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setResult"><strong>setResult</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setSizeGripEnabled"><strong>setSizeGripEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setVisible"><strong>setVisible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-showEvent"><strong>showEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-sizeHint"><strong>sizeHint</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PySide.QtGui.html#QDialog">PySide.QtGui.QDialog</a>:<br>
+<dl><dt><strong>Accepted</strong> = PySide.QtGui.QDialog.DialogCode.Accepted</dl>
+
+<dl><dt><strong>DialogCode</strong> = &lt;type 'PySide.QtGui.QDialog.DialogCode'&gt;</dl>
+
+<dl><dt><strong>Rejected</strong> = PySide.QtGui.QDialog.DialogCode.Rejected</dl>
+
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of Shiboken.ObjectType object&gt;<dd><tt>T.<a href="#EditarTipo-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<dl><dt><strong>accepted</strong> = &lt;PySide.QtCore.Signal object&gt;<dd><tt>Signal</tt></dl>
+
+<dl><dt><strong>finished</strong> = &lt;PySide.QtCore.Signal object&gt;<dd><tt>Signal</tt></dl>
+
+<dl><dt><strong>rejected</strong> = &lt;PySide.QtCore.Signal object&gt;<dd><tt>Signal</tt></dl>
+
+<hr>
+Methods inherited from <a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>:<br>
+<dl><dt><a name="EditarTipo-acceptDrops"><strong>acceptDrops</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-accessibleDescription"><strong>accessibleDescription</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-accessibleName"><strong>accessibleName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-actionEvent"><strong>actionEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-actions"><strong>actions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-activateWindow"><strong>activateWindow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-addAction"><strong>addAction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-addActions"><strong>addActions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-adjustSize"><strong>adjustSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-autoFillBackground"><strong>autoFillBackground</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-backgroundRole"><strong>backgroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-baseSize"><strong>baseSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-changeEvent"><strong>changeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-childAt"><strong>childAt</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-childrenRect"><strong>childrenRect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-childrenRegion"><strong>childrenRegion</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-clearFocus"><strong>clearFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-clearMask"><strong>clearMask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-close"><strong>close</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-contentsMargins"><strong>contentsMargins</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-contentsRect"><strong>contentsRect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-contextMenuPolicy"><strong>contextMenuPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-createWinId"><strong>createWinId</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-cursor"><strong>cursor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-destroy"><strong>destroy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-devType"><strong>devType</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-dragEnterEvent"><strong>dragEnterEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-dragLeaveEvent"><strong>dragLeaveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-dragMoveEvent"><strong>dragMoveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-dropEvent"><strong>dropEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-effectiveWinId"><strong>effectiveWinId</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-ensurePolished"><strong>ensurePolished</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-enterEvent"><strong>enterEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-event"><strong>event</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusInEvent"><strong>focusInEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusNextChild"><strong>focusNextChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusNextPrevChild"><strong>focusNextPrevChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusOutEvent"><strong>focusOutEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusPolicy"><strong>focusPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusPreviousChild"><strong>focusPreviousChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusProxy"><strong>focusProxy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-focusWidget"><strong>focusWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-font"><strong>font</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-fontInfo"><strong>fontInfo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-fontMetrics"><strong>fontMetrics</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-foregroundRole"><strong>foregroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-frameGeometry"><strong>frameGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-frameSize"><strong>frameSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-geometry"><strong>geometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-getContentsMargins"><strong>getContentsMargins</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-grabGesture"><strong>grabGesture</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-grabKeyboard"><strong>grabKeyboard</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-grabMouse"><strong>grabMouse</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-grabShortcut"><strong>grabShortcut</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-graphicsEffect"><strong>graphicsEffect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-graphicsProxyWidget"><strong>graphicsProxyWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-hasFocus"><strong>hasFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-hasMouseTracking"><strong>hasMouseTracking</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-height"><strong>height</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-heightForWidth"><strong>heightForWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-hide"><strong>hide</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-hideEvent"><strong>hideEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-inputContext"><strong>inputContext</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-inputMethodEvent"><strong>inputMethodEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-inputMethodHints"><strong>inputMethodHints</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-inputMethodQuery"><strong>inputMethodQuery</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-insertAction"><strong>insertAction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-insertActions"><strong>insertActions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isActiveWindow"><strong>isActiveWindow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isAncestorOf"><strong>isAncestorOf</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isEnabled"><strong>isEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isEnabledTo"><strong>isEnabledTo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isFullScreen"><strong>isFullScreen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isHidden"><strong>isHidden</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isLeftToRight"><strong>isLeftToRight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isMaximized"><strong>isMaximized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isMinimized"><strong>isMinimized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isModal"><strong>isModal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isRightToLeft"><strong>isRightToLeft</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isVisible"><strong>isVisible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isVisibleTo"><strong>isVisibleTo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isWindow"><strong>isWindow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isWindowModified"><strong>isWindowModified</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-keyReleaseEvent"><strong>keyReleaseEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-languageChange"><strong>languageChange</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-layout"><strong>layout</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-layoutDirection"><strong>layoutDirection</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-leaveEvent"><strong>leaveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-locale"><strong>locale</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-lower"><strong>lower</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mapFrom"><strong>mapFrom</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mapFromGlobal"><strong>mapFromGlobal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mapFromParent"><strong>mapFromParent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mapTo"><strong>mapTo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mapToGlobal"><strong>mapToGlobal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mapToParent"><strong>mapToParent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mask"><strong>mask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-maximumHeight"><strong>maximumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-maximumSize"><strong>maximumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-maximumWidth"><strong>maximumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-metric"><strong>metric</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-minimumHeight"><strong>minimumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-minimumSize"><strong>minimumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-minimumWidth"><strong>minimumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mouseDoubleClickEvent"><strong>mouseDoubleClickEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mouseMoveEvent"><strong>mouseMoveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mousePressEvent"><strong>mousePressEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mouseReleaseEvent"><strong>mouseReleaseEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-move"><strong>move</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-moveEvent"><strong>moveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-nativeParentWidget"><strong>nativeParentWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-nextInFocusChain"><strong>nextInFocusChain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-normalGeometry"><strong>normalGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-overrideWindowFlags"><strong>overrideWindowFlags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-overrideWindowState"><strong>overrideWindowState</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-paintEngine"><strong>paintEngine</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-paintEvent"><strong>paintEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-palette"><strong>palette</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-parentWidget"><strong>parentWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-pos"><strong>pos</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-previousInFocusChain"><strong>previousInFocusChain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-raise_"><strong>raise_</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-rect"><strong>rect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-releaseKeyboard"><strong>releaseKeyboard</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-releaseMouse"><strong>releaseMouse</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-releaseShortcut"><strong>releaseShortcut</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-removeAction"><strong>removeAction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-render"><strong>render</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-repaint"><strong>repaint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-resetInputContext"><strong>resetInputContext</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-resize"><strong>resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-restoreGeometry"><strong>restoreGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-saveGeometry"><strong>saveGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-scroll"><strong>scroll</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setAcceptDrops"><strong>setAcceptDrops</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setAccessibleDescription"><strong>setAccessibleDescription</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setAccessibleName"><strong>setAccessibleName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setAttribute"><strong>setAttribute</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setAutoFillBackground"><strong>setAutoFillBackground</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setBackgroundRole"><strong>setBackgroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setBaseSize"><strong>setBaseSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setContentsMargins"><strong>setContentsMargins</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setContextMenuPolicy"><strong>setContextMenuPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setCursor"><strong>setCursor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setDisabled"><strong>setDisabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setEnabled"><strong>setEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setFixedHeight"><strong>setFixedHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setFixedSize"><strong>setFixedSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setFixedWidth"><strong>setFixedWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setFocus"><strong>setFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setFocusPolicy"><strong>setFocusPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setFocusProxy"><strong>setFocusProxy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setFont"><strong>setFont</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setForegroundRole"><strong>setForegroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setGeometry"><strong>setGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setGraphicsEffect"><strong>setGraphicsEffect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setHidden"><strong>setHidden</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setInputContext"><strong>setInputContext</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setInputMethodHints"><strong>setInputMethodHints</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setLayout"><strong>setLayout</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setLayoutDirection"><strong>setLayoutDirection</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setLocale"><strong>setLocale</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMask"><strong>setMask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMaximumHeight"><strong>setMaximumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMaximumSize"><strong>setMaximumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMaximumWidth"><strong>setMaximumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMinimumHeight"><strong>setMinimumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMinimumSize"><strong>setMinimumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMinimumWidth"><strong>setMinimumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setMouseTracking"><strong>setMouseTracking</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setPalette"><strong>setPalette</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setParent"><strong>setParent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setShortcutAutoRepeat"><strong>setShortcutAutoRepeat</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setShortcutEnabled"><strong>setShortcutEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setSizeIncrement"><strong>setSizeIncrement</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setSizePolicy"><strong>setSizePolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setStatusTip"><strong>setStatusTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setStyle"><strong>setStyle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setStyleSheet"><strong>setStyleSheet</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setToolTip"><strong>setToolTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setUpdatesEnabled"><strong>setUpdatesEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWhatsThis"><strong>setWhatsThis</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowFilePath"><strong>setWindowFilePath</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowFlags"><strong>setWindowFlags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowIcon"><strong>setWindowIcon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowIconText"><strong>setWindowIconText</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowModality"><strong>setWindowModality</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowModified"><strong>setWindowModified</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowOpacity"><strong>setWindowOpacity</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowRole"><strong>setWindowRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowState"><strong>setWindowState</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setWindowTitle"><strong>setWindowTitle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-show"><strong>show</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-showFullScreen"><strong>showFullScreen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-showMaximized"><strong>showMaximized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-showMinimized"><strong>showMinimized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-showNormal"><strong>showNormal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-size"><strong>size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-sizeIncrement"><strong>sizeIncrement</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-sizePolicy"><strong>sizePolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-stackUnder"><strong>stackUnder</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-statusTip"><strong>statusTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-style"><strong>style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-styleSheet"><strong>styleSheet</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-tabletEvent"><strong>tabletEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-testAttribute"><strong>testAttribute</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-toolTip"><strong>toolTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-underMouse"><strong>underMouse</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-ungrabGesture"><strong>ungrabGesture</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-unsetCursor"><strong>unsetCursor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-unsetLayoutDirection"><strong>unsetLayoutDirection</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-unsetLocale"><strong>unsetLocale</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-update"><strong>update</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-updateGeometry"><strong>updateGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-updateMicroFocus"><strong>updateMicroFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-updatesEnabled"><strong>updatesEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-visibleRegion"><strong>visibleRegion</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-whatsThis"><strong>whatsThis</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-wheelEvent"><strong>wheelEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-width"><strong>width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-winId"><strong>winId</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-window"><strong>window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowFilePath"><strong>windowFilePath</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowFlags"><strong>windowFlags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowIcon"><strong>windowIcon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowIconText"><strong>windowIconText</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowModality"><strong>windowModality</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowOpacity"><strong>windowOpacity</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowRole"><strong>windowRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowState"><strong>windowState</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowTitle"><strong>windowTitle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-windowType"><strong>windowType</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-x"><strong>x</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-x11Info"><strong>x11Info</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-x11PictureHandle"><strong>x11PictureHandle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-y"><strong>y</strong></a>(...)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>:<br>
+<dl><dt><a name="EditarTipo-keyboardGrabber"><strong>keyboardGrabber</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-mouseGrabber"><strong>mouseGrabber</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setTabOrder"><strong>setTabOrder</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>:<br>
+<dl><dt><strong>DrawChildren</strong> = PySide.QtGui.QWidget.RenderFlag.DrawChildren</dl>
+
+<dl><dt><strong>DrawWindowBackground</strong> = PySide.QtGui.QWidget.RenderFlag.DrawWindowBackground</dl>
+
+<dl><dt><strong>IgnoreMask</strong> = PySide.QtGui.QWidget.RenderFlag.IgnoreMask</dl>
+
+<dl><dt><strong>RenderFlag</strong> = &lt;type 'PySide.QtGui.QWidget.RenderFlag'&gt;</dl>
+
+<dl><dt><strong>RenderFlags</strong> = &lt;type 'RenderFlags'&gt;</dl>
+
+<dl><dt><strong>customContextMenuRequested</strong> = &lt;PySide.QtCore.Signal object&gt;<dd><tt>Signal</tt></dl>
+
+<hr>
+Methods inherited from <a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a>:<br>
+<dl><dt><a name="EditarTipo-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#EditarTipo-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="EditarTipo-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#EditarTipo-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="EditarTipo-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#EditarTipo-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="EditarTipo-blockSignals"><strong>blockSignals</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-childEvent"><strong>childEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-children"><strong>children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-connectNotify"><strong>connectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-customEvent"><strong>customEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-deleteLater"><strong>deleteLater</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-disconnectNotify"><strong>disconnectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-dumpObjectInfo"><strong>dumpObjectInfo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-dumpObjectTree"><strong>dumpObjectTree</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-dynamicPropertyNames"><strong>dynamicPropertyNames</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-emit"><strong>emit</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-findChild"><strong>findChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-findChildren"><strong>findChildren</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-inherits"><strong>inherits</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-installEventFilter"><strong>installEventFilter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-isWidgetType"><strong>isWidgetType</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-killTimer"><strong>killTimer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-metaObject"><strong>metaObject</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-moveToThread"><strong>moveToThread</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-objectName"><strong>objectName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-parent"><strong>parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-property"><strong>property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-receivers"><strong>receivers</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-removeEventFilter"><strong>removeEventFilter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-sender"><strong>sender</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-senderSignalIndex"><strong>senderSignalIndex</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setObjectName"><strong>setObjectName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-setProperty"><strong>setProperty</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-signalsBlocked"><strong>signalsBlocked</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-startTimer"><strong>startTimer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-thread"><strong>thread</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-timerEvent"><strong>timerEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-tr"><strong>tr</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-trUtf8"><strong>trUtf8</strong></a>(...)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a>:<br>
+<dl><dt><a name="EditarTipo-connect"><strong>connect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-disconnect"><strong>disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-registerUserData"><strong>registerUserData</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a>:<br>
+<dl><dt><strong>destroyed</strong> = &lt;PySide.QtCore.Signal object&gt;<dd><tt>Signal</tt></dl>
+
+<hr>
+Methods inherited from <a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a>:<br>
+<dl><dt><a name="EditarTipo-colorCount"><strong>colorCount</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-depth"><strong>depth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-heightMM"><strong>heightMM</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-logicalDpiX"><strong>logicalDpiX</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-logicalDpiY"><strong>logicalDpiY</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-numColors"><strong>numColors</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-paintingActive"><strong>paintingActive</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-physicalDpiX"><strong>physicalDpiX</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-physicalDpiY"><strong>physicalDpiY</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="EditarTipo-widthMM"><strong>widthMM</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a>:<br>
+<dl><dt><strong>painters</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a>:<br>
+<dl><dt><strong>PaintDeviceMetric</strong> = &lt;type 'PySide.QtGui.QPaintDevice.PaintDeviceMetric'&gt;</dl>
+
+<dl><dt><strong>PdmDepth</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmDepth</dl>
+
+<dl><dt><strong>PdmDpiX</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmDpiX</dl>
+
+<dl><dt><strong>PdmDpiY</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmDpiY</dl>
+
+<dl><dt><strong>PdmHeight</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmHeight</dl>
+
+<dl><dt><strong>PdmHeightMM</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmHeightMM</dl>
+
+<dl><dt><strong>PdmNumColors</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmNumColors</dl>
+
+<dl><dt><strong>PdmPhysicalDpiX</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmPhysicalDpiX</dl>
+
+<dl><dt><strong>PdmPhysicalDpiY</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmPhysicalDpiY</dl>
+
+<dl><dt><strong>PdmWidth</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmWidth</dl>
+
+<dl><dt><strong>PdmWidthMM</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmWidthMM</dl>
+
+<hr>
+Data descriptors inherited from Shiboken.Object:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

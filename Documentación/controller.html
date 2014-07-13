@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module controller</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>controller</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/yerko/trabajo_final_taller/controller.py">/home/yerko/trabajo_final_taller/controller.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PIL.Image.html">PIL.Image</a><br>
+</td><td width="25%" valign=top><a href="base64.html">base64</a><br>
+</td><td width="25%" valign=top><a href="model.html">model</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-actualiza_foto"><strong>actualiza_foto</strong></a>(id_imagen, ubicacion_foto_nueva, callback)</dt><dd><tt>Recibe&nbsp;como&nbsp;parámetros&nbsp;la&nbsp;id&nbsp;de&nbsp;la&nbsp;imagen&nbsp;y&nbsp;la&nbsp;ubicación&nbsp;de&nbsp;la&nbsp;foto&nbsp;nueva<br>
+al&nbsp;igual&nbsp;que&nbsp;la&nbsp;función&nbsp;anterior&nbsp;se&nbsp;obtien&nbsp;la&nbsp;información&nbsp;necesaria&nbsp;de&nbsp;la<br>
+fotografía&nbsp;que&nbsp;se&nbsp;quiere&nbsp;agregar,&nbsp;se&nbsp;crea&nbsp;el&nbsp;objeto&nbsp;imagen,&nbsp;se&nbsp;le&nbsp;pasan&nbsp;los<br>
+parámetros&nbsp;y&nbsp;luego&nbsp;llama&nbsp;a&nbsp;la&nbsp;funcion&nbsp;update_imagen()&nbsp;de&nbsp;la&nbsp;clase&nbsp;Imagen<br>
+la&nbsp;cual&nbsp;actualiza&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-actualiza_tipo"><strong>actualiza_tipo</strong></a>(nombre, descripcion, id_tipo)</dt><dd><tt>Recibe&nbsp;como&nbsp;parámetros&nbsp;nombre,&nbsp;descripcion&nbsp;e&nbsp;id_tipo,<br>
+carga&nbsp;el&nbsp;objeto&nbsp;del&nbsp;tipo&nbsp;Tipo&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos,&nbsp;se&nbsp;le&nbsp;asignan<br>
+los&nbsp;nuevos&nbsp;atributos&nbsp;y&nbsp;luego&nbsp;se&nbsp;hace&nbsp;un&nbsp;update&nbsp;de&nbsp;la&nbsp;información</tt></dd></dl>
+ <dl><dt><a name="-agregar_foto"><strong>agregar_foto</strong></a>(id_animal, nombre_foto, callback)</dt><dd><tt>Recibe&nbsp;como&nbsp;parámetros&nbsp;la&nbsp;id_animal,&nbsp;nombre_foto&nbsp;y&nbsp;un&nbsp;callback,<br>
+abre&nbsp;la&nbsp;imagen&nbsp;que&nbsp;se&nbsp;desea&nbsp;agregar,&nbsp;se&nbsp;obtienen&nbsp;los&nbsp;valores&nbsp;para&nbsp;los<br>
+atributos&nbsp;,&nbsp;luego&nbsp;se&nbsp;crea&nbsp;un&nbsp;objeto&nbsp;del&nbsp;tipo&nbsp;imagen,&nbsp;se&nbsp;le&nbsp;pasan&nbsp;estos<br>
+valores&nbsp;y&nbsp;hace&nbsp;el&nbsp;insert&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;a&nbsp;través&nbsp;de&nbsp;la&nbsp;función<br>
+insertar_imagen()</tt></dd></dl>
+ <dl><dt><a name="-carga_animal"><strong>carga_animal</strong></a>(nombre)</dt><dd><tt>Funcion&nbsp;que&nbsp;carga&nbsp;un&nbsp;animal&nbsp;por&nbsp;nombre&nbsp;y&nbsp;lo&nbsp;retorna&nbsp;a&nbsp;la&nbsp;vista</tt></dd></dl>
+ <dl><dt><a name="-carga_animales"><strong>carga_animales</strong></a>(id_tipo)</dt><dd><tt>Devuelve&nbsp;una&nbsp;lista&nbsp;de&nbsp;objetos&nbsp;con&nbsp;todos&nbsp;los&nbsp;animales&nbsp;de&nbsp;un&nbsp;tipo<br>
+que&nbsp;se&nbsp;encuentran&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos,&nbsp;recibe&nbsp;como&nbsp;parámetro&nbsp;la&nbsp;id&nbsp;del&nbsp;tipo<br>
+de&nbsp;animal&nbsp;del&nbsp;que&nbsp;se&nbsp;quiere&nbsp;cargar</tt></dd></dl>
+ <dl><dt><a name="-carga_info_tipo"><strong>carga_info_tipo</strong></a>(id_tipo)</dt><dd><tt>Devuelve&nbsp;un&nbsp;objeto&nbsp;del&nbsp;tipo&nbsp;Tipo,&nbsp;como&nbsp;parámetro&nbsp;se&nbsp;pasa&nbsp;la&nbsp;id<br>
+del&nbsp;tipo,&nbsp;se&nbsp;utiliza&nbsp;para&nbsp;posteriormente&nbsp;acceder&nbsp;a&nbsp;los&nbsp;atributos&nbsp;del&nbsp;tipo<br>
+y&nbsp;cargarlos&nbsp;en&nbsp;la&nbsp;ventana</tt></dd></dl>
+ <dl><dt><a name="-carga_tipos"><strong>carga_tipos</strong></a>()</dt><dd><tt>Devuelve&nbsp;una&nbsp;lista&nbsp;de&nbsp;objetos&nbsp;con&nbsp;todos&nbsp;los&nbsp;tipos&nbsp;de&nbsp;animales<br>
+que&nbsp;se&nbsp;encuentran&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos,&nbsp;como&nbsp;llama&nbsp;a&nbsp;una&nbsp;función&nbsp;de&nbsp;la&nbsp;clase<br>
+para&nbsp;instanciarla&nbsp;no&nbsp;necesita&nbsp;ningun&nbsp;parámetro</tt></dd></dl>
+ <dl><dt><a name="-crear_animal"><strong>crear_animal</strong></a>(nombre_comun, nombre_cientifico, datos, fk_id_tipo)</dt><dd><tt>Crea&nbsp;un&nbsp;objeto&nbsp;del&nbsp;tipo&nbsp;animal,&nbsp;se&nbsp;le&nbsp;asignan&nbsp;los&nbsp;valores&nbsp;a&nbsp;los<br>
+atributos&nbsp;de&nbsp;este,&nbsp;luego&nbsp;se&nbsp;llama&nbsp;a&nbsp;la&nbsp;función&nbsp;insert_animal()<br>
+la&nbsp;cual&nbsp;hace&nbsp;el&nbsp;insert&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-elimina_animal"><strong>elimina_animal</strong></a>(nombre)</dt><dd><tt>Recibe&nbsp;como&nbsp;parámetro&nbsp;el&nbsp;nombre&nbsp;del&nbsp;animal&nbsp;que&nbsp;se&nbsp;desea&nbsp;eliminar<br>
+llama&nbsp;al&nbsp;objeto&nbsp;y&nbsp;luego&nbsp;a&nbsp;la&nbsp;función&nbsp;delete_animal(),&nbsp;la&nbsp;cual&nbsp;borra&nbsp;de&nbsp;la<br>
+base&nbsp;de&nbsp;datos&nbsp;el&nbsp;animal</tt></dd></dl>
+ <dl><dt><a name="-elimina_foto"><strong>elimina_foto</strong></a>(id_imagen, ubicacion)</dt><dd><tt>Recibe&nbsp;como&nbsp;parámetro&nbsp;la&nbsp;id_imagen,&nbsp;ubicacion<br>
+y&nbsp;llama&nbsp;a&nbsp;la&nbsp;funcion&nbsp;eliminar_foto&nbsp;que&nbsp;borra&nbsp;tanto&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos<br>
+como&nbsp;del&nbsp;disco&nbsp;duro</tt></dd></dl>
+ <dl><dt><a name="-encripta_usuario"><strong>encripta_usuario</strong></a>(usuario, contrasea)</dt></dl>
+ <dl><dt><a name="-obtener_imagenes"><strong>obtener_imagenes</strong></a>(id_animal)</dt><dd><tt>Recibe&nbsp;como&nbsp;parámetro&nbsp;la&nbsp;id&nbsp;del&nbsp;animal,<br>
+luego&nbsp;llama&nbsp;a&nbsp;la&nbsp;funcion&nbsp;.imagenes(),&nbsp;la&nbsp;cual&nbsp;devuelve&nbsp;una&nbsp;lista&nbsp;con<br>
+todas&nbsp;las&nbsp;imagenes&nbsp;en&nbsp;las&nbsp;cuales&nbsp;su&nbsp;fk_id_animal&nbsp;es&nbsp;id_animal</tt></dd></dl>
+ <dl><dt><a name="-update_animal"><strong>update_animal</strong></a>(id_animal, nombre_comun, nombre_cientifico, datos, fk_id_tipo)</dt><dd><tt>Llama&nbsp;a&nbsp;un&nbsp;objeto&nbsp;del&nbsp;tipo&nbsp;animal&nbsp;por&nbsp;la&nbsp;id&nbsp;de&nbsp;este,<br>
+se&nbsp;reasignan&nbsp;los&nbsp;valores&nbsp;de&nbsp;los&nbsp;atributos,&nbsp;luego&nbsp;llama&nbsp;a&nbsp;la&nbsp;función<br>
+update_animal&nbsp;la&nbsp;cual&nbsp;hace&nbsp;la&nbsp;actualización&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+</td></tr></table>
+</body></html>

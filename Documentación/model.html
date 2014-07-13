@@ -1,0 +1,279 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module model</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>model</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/yerko/trabajo_final_taller/model.py">/home/yerko/trabajo_final_taller/model.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sqlite3.html">sqlite3</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="model.html#Tipo">Tipo</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="model.html#Animal">Animal</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="model.html#Imagen">Imagen</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Animal">class <strong>Animal</strong></a>(<a href="model.html#Tipo">Tipo</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;representa&nbsp;la&nbsp;tabla&nbsp;animal<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="model.html#Animal">Animal</a></dd>
+<dd><a href="model.html#Tipo">Tipo</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Animal-__init__"><strong>__init__</strong></a>(self, id_animal<font color="#909090">=None</font>, nombre_comun<font color="#909090">=''</font>, nombre_cientifico<font color="#909090">=''</font>, datos<font color="#909090">=''</font>, fk_id_tipo<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Animal-delete_animal"><strong>delete_animal</strong></a>(self)</dt><dd><tt>Elimina&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;un&nbsp;animal</tt></dd></dl>
+
+<dl><dt><a name="Animal-insert_animal"><strong>insert_animal</strong></a>(self)</dt><dd><tt>Inserta&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;un&nbsp;animal&nbsp;nuevo&nbsp;creado</tt></dd></dl>
+
+<dl><dt><a name="Animal-load_animal"><strong>load_animal</strong></a>(self, nombre<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;un&nbsp;animal&nbsp;por&nbsp;la&nbsp;id&nbsp;o&nbsp;por&nbsp;el&nbsp;nombre&nbsp;y&nbsp;lo&nbsp;retorna</tt></dd></dl>
+
+<dl><dt><a name="Animal-update_animal"><strong>update_animal</strong></a>(self)</dt><dd><tt>Actualiza&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;la&nbsp;información&nbsp;de&nbsp;un&nbsp;animal</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Animal-animales"><strong>animales</strong></a>(cls, id_tipo)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;animales.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocarlo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__tablename__</strong> = 'animal'</dl>
+
+<dl><dt><strong>datos</strong> = ''</dl>
+
+<dl><dt><strong>fk_id_tipo</strong> = None</dl>
+
+<dl><dt><strong>id_animal</strong> = None</dl>
+
+<dl><dt><strong>nombre_cientifico</strong> = ''</dl>
+
+<dl><dt><strong>nombre_comun</strong> = ''</dl>
+
+<hr>
+Methods inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><a name="Animal-load_tipo"><strong>load_tipo</strong></a>(self, nombre<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;un&nbsp;tipo&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;por&nbsp;id_tipo&nbsp;o&nbsp;nombre</tt></dd></dl>
+
+<dl><dt><a name="Animal-update_tipo"><strong>update_tipo</strong></a>(self)</dt><dd><tt>Actualiza&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;el&nbsp;tipo</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><a name="Animal-all"><strong>all</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;cursos.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocarlo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><strong>descripcion</strong> = ''</dl>
+
+<dl><dt><strong>id_tipo</strong> = None</dl>
+
+<dl><dt><strong>nombre</strong> = ''</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Imagen">class <strong>Imagen</strong></a>(<a href="model.html#Animal">Animal</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="model.html#Imagen">Imagen</a></dd>
+<dd><a href="model.html#Animal">Animal</a></dd>
+<dd><a href="model.html#Tipo">Tipo</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Imagen-__init__"><strong>__init__</strong></a>(self, id_imagen<font color="#909090">=None</font>, ubicacion<font color="#909090">=''</font>, formato<font color="#909090">=''</font>, resolucion<font color="#909090">=''</font>, fk_id_animal<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="Imagen-insertar_imagen"><strong>insertar_imagen</strong></a>(self)</dt><dd><tt>Inserta&nbsp;una&nbsp;imagen&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;con&nbsp;todos&nbsp;sus&nbsp;valores<br>
+respectivos</tt></dd></dl>
+
+<dl><dt><a name="Imagen-load_imagen"><strong>load_imagen</strong></a>(self)</dt><dd><tt>Carga&nbsp;una&nbsp;imagen&nbsp;de&nbsp;acuerdo&nbsp;a&nbsp;la&nbsp;id&nbsp;de&nbsp;esta</tt></dd></dl>
+
+<dl><dt><a name="Imagen-update_imagen"><strong>update_imagen</strong></a>(self)</dt><dd><tt>"Actualiza&nbsp;la&nbsp;información&nbsp;de&nbsp;una&nbsp;imagen&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Imagen-elimina_foto"><strong>elimina_foto</strong></a>(cls, id_imagen, ubicacion)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Se&nbsp;le&nbsp;pasa&nbsp;como&nbsp;parámetros&nbsp;la&nbsp;id&nbsp;de&nbsp;la&nbsp;imágen&nbsp;y&nbsp;la&nbsp;ubicación&nbsp;de<br>
+esta&nbsp;y&nbsp;elimina&nbsp;tanto&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;como&nbsp;del&nbsp;computador&nbsp;una&nbsp;imagen<br>
+seleccionada</tt></dd></dl>
+
+<dl><dt><a name="Imagen-imagenes"><strong>imagenes</strong></a>(cls, fk_id_animal)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;devuelve&nbsp;las&nbsp;imágenes&nbsp;de&nbsp;un&nbsp;animal&nbsp;específico</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__tablename__</strong> = 'imagen'</dl>
+
+<dl><dt><strong>fk_id_animal</strong> = ''</dl>
+
+<dl><dt><strong>formato</strong> = ''</dl>
+
+<dl><dt><strong>id_imagen</strong> = None</dl>
+
+<dl><dt><strong>resolucion</strong> = ''</dl>
+
+<dl><dt><strong>ubicacion</strong> = ''</dl>
+
+<hr>
+Methods inherited from <a href="model.html#Animal">Animal</a>:<br>
+<dl><dt><a name="Imagen-delete_animal"><strong>delete_animal</strong></a>(self)</dt><dd><tt>Elimina&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;un&nbsp;animal</tt></dd></dl>
+
+<dl><dt><a name="Imagen-insert_animal"><strong>insert_animal</strong></a>(self)</dt><dd><tt>Inserta&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;un&nbsp;animal&nbsp;nuevo&nbsp;creado</tt></dd></dl>
+
+<dl><dt><a name="Imagen-load_animal"><strong>load_animal</strong></a>(self, nombre<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;un&nbsp;animal&nbsp;por&nbsp;la&nbsp;id&nbsp;o&nbsp;por&nbsp;el&nbsp;nombre&nbsp;y&nbsp;lo&nbsp;retorna</tt></dd></dl>
+
+<dl><dt><a name="Imagen-update_animal"><strong>update_animal</strong></a>(self)</dt><dd><tt>Actualiza&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;la&nbsp;información&nbsp;de&nbsp;un&nbsp;animal</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="model.html#Animal">Animal</a>:<br>
+<dl><dt><a name="Imagen-animales"><strong>animales</strong></a>(cls, id_tipo)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;animales.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocarlo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="model.html#Animal">Animal</a>:<br>
+<dl><dt><strong>datos</strong> = ''</dl>
+
+<dl><dt><strong>fk_id_tipo</strong> = None</dl>
+
+<dl><dt><strong>id_animal</strong> = None</dl>
+
+<dl><dt><strong>nombre_cientifico</strong> = ''</dl>
+
+<dl><dt><strong>nombre_comun</strong> = ''</dl>
+
+<hr>
+Methods inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><a name="Imagen-load_tipo"><strong>load_tipo</strong></a>(self, nombre<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;un&nbsp;tipo&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;por&nbsp;id_tipo&nbsp;o&nbsp;nombre</tt></dd></dl>
+
+<dl><dt><a name="Imagen-update_tipo"><strong>update_tipo</strong></a>(self)</dt><dd><tt>Actualiza&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;el&nbsp;tipo</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><a name="Imagen-all"><strong>all</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;cursos.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocarlo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="model.html#Tipo">Tipo</a>:<br>
+<dl><dt><strong>descripcion</strong> = ''</dl>
+
+<dl><dt><strong>id_tipo</strong> = None</dl>
+
+<dl><dt><strong>nombre</strong> = ''</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Tipo">class <strong>Tipo</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;representa&nbsp;a&nbsp;la&nbsp;tabla&nbsp;tipo<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Tipo-__init__"><strong>__init__</strong></a>(self, id_tipo<font color="#909090">=None</font>, nombre<font color="#909090">=''</font>, descripcion<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="Tipo-load_tipo"><strong>load_tipo</strong></a>(self, nombre<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;un&nbsp;tipo&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;por&nbsp;id_tipo&nbsp;o&nbsp;nombre</tt></dd></dl>
+
+<dl><dt><a name="Tipo-update_tipo"><strong>update_tipo</strong></a>(self)</dt><dd><tt>Actualiza&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;el&nbsp;tipo</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Tipo-all"><strong>all</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;cursos.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocarlo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__tablename__</strong> = 'tipo'</dl>
+
+<dl><dt><strong>descripcion</strong> = ''</dl>
+
+<dl><dt><strong>id_tipo</strong> = None</dl>
+
+<dl><dt><strong>nombre</strong> = ''</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-busca_usuario"><strong>busca_usuario</strong></a>(usuario<font color="#909090">=''</font>, contrasea<font color="#909090">=''</font>)</dt></dl>
+ <dl><dt><a name="-connect"><strong>connect</strong></a>()</dt><dd><tt>Retorna&nbsp;una&nbsp;conexión&nbsp;con&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-last_id"><strong>last_id</strong></a>(conn)</dt><dd><tt>Retorna&nbsp;la&nbsp;última&nbsp;primary&nbsp;key&nbsp;generada&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+</td></tr></table>
+</body></html>
