@@ -10,6 +10,7 @@ from EditarTipo_view import EditarTipo
 from Formulario_view import Formulario
 import os
 import shutil
+import random
 
 
 class MainWindow(QtGui.QMainWindow):
@@ -267,7 +268,13 @@ class MainWindow(QtGui.QMainWindow):
             fileName = QtGui.QFileDialog.getOpenFileName(self,
                  "Elige la imagen", os.getcwd())
             directorio = fileName[0]
-            nombre_foto = QtCore.QFileInfo(directorio).fileName()
+
+            num = random.randrange(1, 20)
+            num_str = str(num)
+
+            nombre_foto = "{0}_{1}".format(
+                num_str, QtCore.QFileInfo(directorio).fileName())
+
             ubicacion_nueva_foto = "imagenes/{0}".format(nombre_foto)
             shutil.copy2(directorio, ubicacion_nueva_foto)
 
@@ -292,7 +299,12 @@ class MainWindow(QtGui.QMainWindow):
             fileName = QtGui.QFileDialog.getOpenFileName(self,
                  "Elige la imagen", os.getcwd(), "*.jpg *.jpeg *.png *.gif")
             directorio = fileName[0]
-            nombre_foto = QtCore.QFileInfo(directorio).fileName()
+
+            num = random.randrange(1, 20)
+            num_str = str(num)
+
+            nombre_foto = "{0}_{1}".format(
+                num_str, QtCore.QFileInfo(directorio).fileName())
             shutil.copy2(directorio, "imagenes/{0}".format(nombre_foto))
 
             index = self.ui.tabla_animal.currentIndex()
